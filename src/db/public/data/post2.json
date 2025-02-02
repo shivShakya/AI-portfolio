@@ -1,0 +1,31 @@
+{
+    "name": "Shivam Shakya",
+    "location": "Noida, Uttar Pradesh, India",
+    "profession": "3D Developer",
+    "experience": {
+      "total_experience": "Over 2 years",
+      "technologies": ["three.js", "React", "Blender", "Unity", "Unreal Engine", "Babylon.js"],
+      "roles": [
+        {
+          "title": "Three.js Full Stack Intern",
+          "company": "Renderpub",
+          "responsibilities": ["Developed a 3D Editor", "Created pipeline for metaverse development"]
+        },
+        {
+          "title": "Freelance 3D Developer",
+          "duration": "1 month",
+          "responsibilities": ["Created a walkthrough using react-three-fiber"]
+        },
+        {
+          "title": "3D Developer",
+          "company": "VRARMR, Delhi",
+          "responsibilities": ["Created games and campaigns using various 3D technologies"]
+        }
+      ]
+    },
+    "technical_skills": ["Three.js", "React", "Blender", "Unity", "Unreal Engine", "Babylon.js", "Firebase", "Firestore"],
+    "current_focus": ["3D development for web experiences", "Game development"],
+    "achievements": ["Developed immersive 3D applications", "Implemented efficient rendering pipelines"],
+    "personal_traits": ["Innovative", "Problem-solver", "Passionate about 3D technology"]
+  }
+  

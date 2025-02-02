@@ -1,0 +1,17 @@
+{
+    "title": "AI Swiper Simulator",
+    "description": "An AI-powered simulator designed for user interaction analysis. The system simulates swipe interactions to test UI performance and user engagement patterns.",
+    "features": [
+      "Simulated swipe gestures for interaction analysis",
+      "AI-driven pattern recognition and behavior insights",
+      "Comprehensive performance reports",
+      "Customizable simulation parameters"
+    ],
+    "technologies": ["JavaScript", "TensorFlow.js", "React.js", "Node.js"],
+    "useCases": [
+      "UI/UX testing and analysis",
+      "Optimizing user engagement",
+      "Automating app testing processes"
+    ],
+    "videoLink": "https://www.youtube.com/watch?v=ai_swiper_video_link"
+  }

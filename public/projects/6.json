@@ -1,0 +1,17 @@
+{
+    "title": "FaceSwap",
+    "description": "An AI-based face-swapping application that enables users to seamlessly swap faces in images and videos. It offers fun and creative possibilities for content creation.",
+    "features": [
+      "Real-time face-swapping capabilities",
+      "High-quality face mapping and blending",
+      "Supports images and video content",
+      "Secure processing with privacy measures"
+    ],
+    "technologies": ["OpenCV", "Dlib", "Python", "DeepFaceLab"],
+    "useCases": [
+      "Social media content creation",
+      "Entertainment and gaming",
+      "Creative marketing campaigns"
+    ],
+    "videoLink": "https://www.youtube.com/watch?v=faceswap_video_link"
+  }

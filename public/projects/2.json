@@ -1,0 +1,17 @@
+{
+      "title": "CraftStore",
+      "description": "CraftStore is an e-commerce platform that empowers artisans and craft creators to showcase and sell their handmade products. It offers a seamless shopping experience with secure payments and personalized recommendations.",
+      "features": [
+        "User-friendly interface for browsing craft products",
+        "Secure payment gateway integration",
+        "Personalized product recommendations",
+        "Order tracking and wishlist management"
+      ],
+      "technologies": ["React.js", "Node.js", "MongoDB", "Stripe API"],
+      "useCases": [
+        "Supporting local artisans and craft businesses",
+        "Providing a niche marketplace for creative products",
+        "Custom recommendations based on user preferences"
+      ],
+      "videoLink": "https://www.youtube.com/watch?v=craftstore_video_link"
+}

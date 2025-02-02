@@ -1,0 +1,17 @@
+{
+    "title": "Fine-tuning Stable Diffusion Model",
+    "description": "This project focuses on fine-tuning the Stable Diffusion model for custom image generation tasks. It allows users to create high-quality, domain-specific images tailored to their needs.",
+    "features": [
+      "Custom dataset training for specific image domains",
+      "Enhanced image generation with controlled outputs",
+      "Fine-grained adjustments for style and content",
+      "State-of-the-art AI-based image synthesis"
+    ],
+    "technologies": ["Python", "Stable Diffusion", "Hugging Face Transformers", "PyTorch"],
+    "useCases": [
+      "Advertising and marketing campaigns",
+      "Creative content generation",
+      "Design and artistic exploration"
+    ],
+    "videoLink": "https://www.youtube.com/watch?v=stable_diffusion_video_link"
+  }

@@ -1,0 +1,17 @@
+{
+    "title": "AR Projects",
+    "description": "A collection of Augmented Reality (AR) projects that provide immersive and interactive experiences for various applications such as marketing, education, and entertainment.",
+    "features": [
+      "AR marker-based and markerless experiences",
+      "Interactive 3D content",
+      "Cross-platform compatibility (iOS, Android, Web)",
+      "Seamless integration with existing systems"
+    ],
+    "technologies": ["AR.js", "Three.js", "Unity", "Vuforia"],
+    "useCases": [
+      "Immersive marketing campaigns",
+      "Interactive educational content",
+      "Virtual product visualization"
+    ],
+    "videoLink": "https://www.youtube.com/watch?v=ar_projects_video_link"
+  }
