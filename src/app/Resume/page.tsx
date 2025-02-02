@@ -1,3 +1,4 @@
+"use client"
 export default function Resume() {
     return (
       <div className="flex flex-col w-full h-full items-center justify-center">

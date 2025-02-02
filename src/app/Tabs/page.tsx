@@ -1,3 +1,4 @@
+"use client"
 export default function Tabs() {
   return (
     <div className="fixed bottom-0 hidden md:flex justify-center items-center gap-2 bg-[#013954] rounded-lg p-2 m-2 shadow-lg w-full md:w-auto">
