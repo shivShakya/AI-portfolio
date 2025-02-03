@@ -34,13 +34,13 @@ export default function InfoBar() {
             Development, 3D Development, and many more.
           </p>
           <p className="leading-relaxed mt-4">
-            Over the past few years, I've had the opportunity to work on
+            Over the past few years, I&apos;ve had the opportunity to work on
             several exciting projects, from building interactive web
             applications to creating 3D environments and games using Unity,
             Unreal Engine, and Three.js.
           </p>
           <p className="leading-relaxed mt-4">
-            When I'm not coding or designing, you can find me exploring new
+            When I&apos;m not coding or designing, you can find me exploring new
             gaming trends, experimenting with virtual reality, or learning new
             software like Blender for 3D modeling.
           </p>

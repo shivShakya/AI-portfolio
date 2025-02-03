@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import TextBot from "./TextBot/page";
+import Image from "next/image";
+
 
 export default function Chatbot() {
   const [isHovered, setIsHovered] = useState(false);
@@ -21,7 +23,7 @@ export default function Chatbot() {
           <div className="h-screen w-full">
           <div className="h-full w-full flex justify-center items-center flex-col bg-white border border-black rounded-[2%]">
              <div className="h-3/4 flex justify-between items-center flex-col">
-                 <img
+                 <Image
                       src="robo.gif"
                       alt="Shivam Shakya"
                       className="w-56 h-56 rounded-full object-cover border border-black"

@@ -27,7 +27,6 @@ interface Blog {
 
 export default function BlogPost() {
   const pathname = usePathname();
-  const slug = pathname.split("/").pop();
   const [blog, setBlog] = useState<Blog | null>(null);
 
   useEffect(() => {
