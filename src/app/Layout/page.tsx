@@ -1,10 +1,9 @@
 "use client"
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
-import Tilt from 'react-parallax-tilt';
+import Tilt from "react-parallax-tilt";
 
-
-export default function Layout() {
+const Layout = () => {
   useEffect(() => {
     gsap.fromTo(
       ".card",
@@ -28,23 +27,31 @@ export default function Layout() {
           { title: "Work Experience", items: ["Software Engineer at Company X", "Frontend Developer at Company Y"] },
           { title: "Education", items: ["Bachelor's in Computer Science", "Master's in Software Engineering"] },
         ].map((section, index) => (
-          <Tilt  glareEnable={true}  tiltMaxAngleX={10} 
-          tiltMaxAngleY={10} perspective={500}  key={index} 
-          className="card flex flex-col justify-start items-center min-h-[25vh] p-6 bg-white border border-gray-300 rounded-lg shadow-lg hover:bg-customColor hover:text-white transition-shadow">
-                <div>
-            <div className="text-2xl font-semibold mb-4">{section.title}</div>
-            <div className="w-full p-4">
-              <ul className="space-y-2 text-gray-700 text-lg">
-                {section.items.map((item, idx) => (
-                  <li key={idx} className="font-medium hover:text-white">{item}</li>
-                ))}
-              </ul>
+          <Tilt
+            glareEnable={true}
+            tiltMaxAngleX={10}
+            tiltMaxAngleY={10}
+            perspective={500}
+            key={index}
+            className="card flex flex-col justify-start items-center min-h-[25vh] p-6 bg-white border border-gray-300 rounded-lg shadow-lg hover:bg-customColor hover:text-white transition-shadow"
+          >
+            <div>
+              <div className="text-2xl font-semibold mb-4">{section.title}</div>
+              <div className="w-full p-4">
+                <ul className="space-y-2 text-gray-700 text-lg">
+                  {section.items.map((item, idx) => (
+                    <li key={idx} className="font-medium hover:text-white">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-
           </Tilt>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default Layout;

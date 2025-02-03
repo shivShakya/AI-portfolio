@@ -5,7 +5,7 @@ import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
 
 
-export function Profile() {
+export default function Profile() {
   return (
     <div className="flex flex-col md:flex-row items-center w-full">
   <Image
