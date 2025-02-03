@@ -13,7 +13,6 @@ const ENDPOINT = process.env.ASTRA_DB_ENDPOINT;
 const namespace = process.env.ASTRA_DB_NAMESPACE;
 const collectionName = process.env.ASTRA_DB_COLLECTION;
 const hfToken = process.env.HF_TOKEN;
-const groqApiToken = process.env.GROQ_API_TOKEN;
 
 
 // Initialize Hugging Face Inference API

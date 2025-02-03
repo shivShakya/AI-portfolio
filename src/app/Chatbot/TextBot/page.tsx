@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCategory } from "../../redux/categorySlice";
 import { Loader2 } from "lucide-react";
 

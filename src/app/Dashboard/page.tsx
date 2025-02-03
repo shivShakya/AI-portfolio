@@ -12,7 +12,7 @@ import Skills from "../Skills/page";
 import Resume from "../Resume/page";
 import Chatbot from "../Chatbot/page";
 import type { RootState } from '../redux/store'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 export default function Home() {
