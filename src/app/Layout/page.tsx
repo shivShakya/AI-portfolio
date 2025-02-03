@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import Tilt from 'react-parallax-tilt';
 
 
-export function Layout() {
+export default function Layout() {
   useEffect(() => {
     gsap.fromTo(
       ".card",
