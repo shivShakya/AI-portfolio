@@ -26,7 +26,6 @@ interface Blog {
 }
 
 export default function BlogPost() {
-  const pathname = usePathname();
   const [blog, setBlog] = useState<Blog | null>(null);
 
   useEffect(() => {

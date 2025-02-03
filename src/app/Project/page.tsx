@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import Link from 'next/link';
 import Tilt from 'react-parallax-tilt';
 
@@ -29,7 +30,7 @@ export default function Project() {
             key={project.id}
             className="p-4 rounded-2xl shadow-lg bg-white text-customDark flex flex-col hover:scale-[1.02] transition-transform duration-200"
           >
-            <img
+            <Image
               src={project.image}
               alt={project.title}
               className="w-full h-40 object-cover rounded-md mb-4"
