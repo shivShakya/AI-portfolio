@@ -1,6 +1,6 @@
 "use client";
-import { Layout } from "./Layout/page";
-import { Profile } from "./Profile/page";
+import Layout from "./Layout/page";
+import Profile from "./Profile/page";
 import Link from "next/link";
 
 const Test: React.FC = () => {
