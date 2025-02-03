@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Blog from "../blog/page";
-import CircularNav from "../CircularNav/page";
+import CircularNav from "../CircularNav/CircularNav";
 import Education from "../Education/page";
 import Experience from "../Experience/page";
 import Tabs from "../Tabs/page";

@@ -33,6 +33,8 @@ export default function Project() {
             <Image
               src={project.image}
               alt={project.title}
+              width={28}
+              height={28}
               className="w-full h-40 object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold">{project.title}</h3>

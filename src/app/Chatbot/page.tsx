@@ -26,6 +26,8 @@ export default function Chatbot() {
                  <Image
                       src="robo.gif"
                       alt="Shivam Shakya"
+                      width={28}
+                      height={28}
                       className="w-56 h-56 rounded-full object-cover border border-black"
                  />
                    <TextBot />
