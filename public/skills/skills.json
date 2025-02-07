@@ -1,0 +1,41 @@
+[
+    {
+      "title": "3D Development",
+      "skills": [
+        "Three.js",
+        "React-Three-Fiber",
+        "Babylon.js",
+        "Unity",
+        "Unreal Engine"
+      ]
+    },
+    {
+      "title": "Web Development",
+      "skills": [
+        "React.js",
+        "Flask",
+        "FastAPI",
+        "Django",
+        "JavaScript, HTML, CSS"
+      ]
+    },
+    {
+      "title": "3D Modeling & Asset Creation",
+      "skills": [
+        "Blender",
+        "GLTF/GLB Pipeline",
+        "3D Optimization"
+      ]
+    },
+    {
+      "title": "Other Skills",
+      "skills": [
+        "Firebase (Firestore)",
+        "API Development and Integration",
+        "Responsive Design and Mobile Optimization",
+        "Video Processing (FFmpeg)",
+        "Machine Learning Basics (CNN, LSTM for Image Captioning)"
+      ]
+    }
+  ]
+  

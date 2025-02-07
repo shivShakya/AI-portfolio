@@ -1,0 +1,27 @@
+[
+    {
+      "title": "3D Developer at VRARMR, Delhi",
+      "duration": "Current role",
+      "description": [
+        "Developed immersive games and campaigns using technologies like Unity, Unreal Engine, Three.js, and Babylon.js.",
+        "Worked on creating engaging 3D experiences for various campaigns."
+      ]
+    },
+    {
+      "title": "Three.js Full Stack Intern at Renderpub",
+      "duration": "Internship",
+      "description": [
+        "Developed a 3D Editor and pipeline for creating metaverses.",
+        "Contributed to enhancing the user experience in metaverse development using Three.js."
+      ]
+    },
+    {
+      "title": "Freelance 3D Developer",
+      "duration": "1 Month",
+      "description": [
+        "Created a walkthrough application using React-Three-Fiber.",
+        "Delivered a high-quality, interactive 3D experience for a client."
+      ]
+    }
+  ]
+  

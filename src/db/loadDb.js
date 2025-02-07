@@ -4,31 +4,42 @@ import 'dotenv/config';
 import { HfInference } from "@huggingface/inference";
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { UUID } from "@datastax/astra-db-ts";
 
-
 // Astra DB Configuration
-const token = process.env.ASTRA_DB_TOKEN;
-const ENDPOINT = process.env.ASTRA_DB_ENDPOINT;
-const namespace = process.env.ASTRA_DB_NAMESPACE;
-const collectionName = process.env.ASTRA_DB_COLLECTION;
-const hfToken = process.env.HF_TOKEN;
 
-
-// Initialize Hugging Face Inference API
 const inference = new HfInference(hfToken);
 
-const readJSONFiles = (dir) => {
-  const directoryPath = path.join(process.cwd(), 'public', dir);
-  const files = fs.readdirSync(directoryPath);
-  return files
-    .filter((file) => path.extname(file) === '.json')
-    .map((file) => {
-      const filePath = path.join(directoryPath, file);
-      const content = fs.readFileSync(filePath, 'utf8');
-      return JSON.parse(content);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const readJSONFiles = (dir = '') => {
+  const directoryPath = path.join(__dirname, '../../public', dir);
+
+  const readDirectory = (currentDir) => {
+    let results = [];
+    const files = fs.readdirSync(currentDir);
+
+    files.forEach((file) => {
+      const filePath = path.join(currentDir, file);
+      const stats = fs.statSync(filePath);
+
+      if (stats.isDirectory()) {
+        results = results.concat(readDirectory(filePath));
+      } else if (path.extname(file) === '.json') {
+        const content = fs.readFileSync(filePath, 'utf8');
+        results.push(JSON.parse(content));
+      }
     });
+
+    return results;
+  };
+
+  return readDirectory(directoryPath);
 };
+
 
 
 const client = new DataAPIClient(token);
@@ -38,6 +49,7 @@ const splitter = new RecursiveCharacterTextSplitter({
   chunkSize: 1000,
   chunkOverlap: 200,
 });
+
 
 const createCollection = async () => {
   try {
@@ -57,9 +69,10 @@ const createCollection = async () => {
   }
 };
 
+
 const loadData = async () => {
   const collection = await db.collection(collectionName);
-  const jsonDataArray = readJSONFiles('data');
+  const jsonDataArray = readJSONFiles('');
 
   for (const jsonData of jsonDataArray) {
     const jsonString = JSON.stringify(jsonData);
@@ -91,3 +104,4 @@ const loadData = async () => {
 };
 
 createCollection().then(() => loadData());
+

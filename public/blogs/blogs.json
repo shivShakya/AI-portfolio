@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "title": "The Art of Mindfulness",
+      "description": "Discover how mindfulness can improve your daily life and help you find peace in the chaos.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/1"
+    },
+    {
+      "id": 2,
+      "title": "Top 10 Travel Destinations",
+      "description": "Explore the must-visit travel destinations for 2025. From tropical beaches to mountain escapes.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/2"
+    },
+    {
+      "id": 3,
+      "title": "The Future of AI",
+      "description": "How artificial intelligence is shaping industries and what to expect in the coming years.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/3"
+    },
+    {
+      "id": 4,
+      "title": "Healthy Eating Tips",
+      "description": "Learn practical tips to maintain a healthy diet while still enjoying your favorite foods.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/4"
+    },
+    {
+      "id": 5,
+      "title": "Mastering Remote Work",
+      "description": "Tips and tools to stay productive while working from home or any remote location.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    },
+    {
+      "id": 6,
+      "title": "Sustainable Living",
+      "description": "Simple steps to reduce your carbon footprint and lead a more sustainable lifestyle.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    },
+    {
+      "id": 7,
+      "title": "Exploring Space",
+      "description": "A journey through the latest discoveries in space exploration and astronomy.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    },
+    {
+      "id": 8,
+      "title": "Fitness for Beginners",
+      "description": "Your guide to starting a fitness routine and staying motivated for a healthier you.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    },
+    {
+      "id": 9,
+      "title": "The Evolution of Gaming",
+      "description": "How video games have transformed over the decades and what's next for gamers.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    },
+    {
+      "id": 10,
+      "title": "Personal Finance Tips",
+      "description": "Learn how to manage your money better and plan for a financially secure future.",
+      "image": "/MainBefore.jpg",
+      "link": "/blog/5"
+    }
+  ]
+  
