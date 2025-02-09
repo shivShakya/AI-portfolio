@@ -1,7 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import TextBot from "./TextBot/TextBot";
-import Image from "next/image";
 import VoiceBot from "./VoiceBot/VoiceBot";
 
 interface ChatbotProps {
@@ -27,8 +26,6 @@ export default function Chatbot({isHovered} : ChatbotProps) {
                 <div  className="w-56 h-56">
                      <VoiceBot modelUrl="./me.glb" />
                 </div>
-                 
-                
                    <TextBot />
               </div>
           </div>

@@ -13,7 +13,6 @@ import Resume from "./Resume/page";
 import Chatbot from "./Chatbot/Chatbot";
 import type { RootState } from '../../redux/store'
 import { useSelector } from 'react-redux'
-import { Mic , MicOff , Volume2 , VolumeX } from "lucide-react";
 import Stt from "./Chatbot/Stt/Stt";
 
 export default function Home() {
