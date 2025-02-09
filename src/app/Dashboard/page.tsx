@@ -20,7 +20,6 @@ export default function Home() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const category = useSelector((state: RootState) => state.category.value)
-  const response = useSelector((state: RootState) => state.response.value);
 
   useEffect(()=>{
        console.log({category});
