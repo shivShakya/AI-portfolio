@@ -57,9 +57,6 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
         animate();
       },
       undefined,
-      (error: Error) => {
-        console.error('An error occurred while loading the model:', error);
-      }
     );
 
     // Animation loop
