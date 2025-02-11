@@ -99,7 +99,11 @@ const Stt: React.FC<SttProps> = ({ children }) => {
           setApiResponse(`Failed to fetch API: ${response.statusText}`);
         }
       } catch (error: unknown) {
-        setApiResponse(`Error:`);
+        if (error instanceof Error) {
+          setApiResponse(`Error: ${error.message}`);
+        } else {
+          setApiResponse('An unknown error occurred.');
+        }
       } finally {
         resetTranscript();
       }
@@ -123,7 +127,11 @@ const Stt: React.FC<SttProps> = ({ children }) => {
       const data = await response.json();
       dispatch(setVoiceContent(data));
     } catch (error: unknown) {
-      console.error("Failed to fetch voice bot data.");
+      if (error instanceof Error) {
+        setApiResponse(`Error: ${error.message}`);
+      } else {
+        setApiResponse('An unknown error occurred.');
+      }
     }
   };
 
