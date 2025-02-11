@@ -1,31 +1,94 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useSelector , useDispatch } from "react-redux";
+import { RootState } from "@/redux/store";
+import { setOutput } from "@/redux/outputTextSlice";
+
 
 interface ThreeJSModelViewerProps {
   modelUrl: string;
 }
 
+interface AlignmentData {
+  phonemes: any;
+  word: string;
+  start: number;
+  end: number;
+}
+
+interface VoiceState {
+  TaskStatus: string;
+  TimestampsUri: string;
+  OutputUri: string;
+}
+
 const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [preloadedModel, setPreloadedModel] = useState<THREE.Object3D | null>(null);
+  const voiceContent = useSelector((state: RootState) => state.voice.value) as unknown as VoiceState;
+  const headObject = preloadedModel?.getObjectByName("Wolf3D_Head") as THREE.Mesh & {
+    morphTargetDictionary?: Record<string, number>;
+    morphTargetInfluences?: number[];
+  } | null;
+  let audio: HTMLAudioElement | null = null;
+  let wordsWithTiming: AlignmentData[] = [];
+  let previousPhoneme: string | null = null;
+  const timeouts: NodeJS.Timeout[] = [];
+  const dispatch = useDispatch();
+
+  const phonemeToMorph: Record<string, string> = {
+    "a": "a", "b": "E", "c": "k", "d": "t",
+    "e": "e", "f": "f", "g": "E", "h": "au",
+    "i": "i", "j": "k", "k": "k", "l": "pi",
+    "m": "pa", "n": "pa", "o": "O", "p": "e",
+    "q": "uO", "r": "r", "s": "s", "t": "t",
+    "u": "u", "v": "E", "w": "uo", "x": "kf",
+    "y": "i", "z": "rf", "1": "op", "2": "u", "3": "ee",
+    "4": "oa", "5": "aeo", "6": "ES", "7": "eea", "8": "aeT",
+    "9": "aei", "0": "eo"
+  };
+
+  const match: Record<string, string> = {
+    "p": "viseme_PP",
+    "f": "viseme_FF",
+    "E": "viseme_E",
+    "i": "viseme_I",
+    "o": "viseme_O",
+    "O": "viseme_O",
+    "k": "viseme_kk",
+    "s": "viseme_SS",
+    "t": "viseme_TH",
+    "u": "viseme_U",
+    "a": "viseme_aa",
+    "r": "viseme_RR",
+  }; 
+
+ 
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    const loader = new GLTFLoader();
+    loader.load(
+      modelUrl,
+      (gltf) => setPreloadedModel(gltf.scene),
+      undefined,
+      (error) => console.error("Model failed to load:", error)
+    );
+  }, [modelUrl]);
 
-    // Set up the scene
+  useEffect(() => {
+    if (!canvasRef.current || !preloadedModel) return;
+
     const scene = new THREE.Scene();
-
-    // Set up the camera
     const camera = new THREE.PerspectiveCamera(
       45,
       canvasRef.current.clientWidth / canvasRef.current.clientHeight,
       0.1,
       1000
     );
-    camera.position.z = 0.6;
-    camera.position.y = 1.7;
+    camera.position.set(0, 1.7, 0.6);
 
-    // Set up the renderer
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: true,
@@ -35,7 +98,7 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
       canvasRef.current.clientWidth,
       canvasRef.current.clientHeight
     );
-    renderer.setClearColor(0x000000, 1);
+    renderer.setClearColor(0x000000, 0);
 
     const ambientLight = new THREE.AmbientLight(0x404040, 4);
     scene.add(ambientLight);
@@ -44,28 +107,99 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
     directionalLight.position.set(0.069, 1.748, 1.586);
     scene.add(directionalLight);
 
-    const hemesphereLight = new THREE.HemisphereLight("#00AAFF", "#FFAA00" , 4);
-    hemesphereLight.position.set(0.000 , 1.538 , 0.000);
-    scene.add(hemesphereLight);
+    const hemisphereLight = new THREE.HemisphereLight("#00AAFF", "#FFAA00", 4);
+    hemisphereLight.position.set(0, 1.538, 0);
+    scene.add(hemisphereLight);
 
-    const loader = new GLTFLoader();
-    loader.load(
-      modelUrl,
-      (gltf: { scene: THREE.Object3D<THREE.Object3DEventMap>; }) => {
-        scene.add(gltf.scene);
-        gltf.scene.position.set(0, 0, 0);
-        animate();
-      },
-      undefined,
-    );
+    scene.add(preloadedModel);
+    preloadedModel.position.set(0, 0, 0);
 
-    // Animation loop
+    if (voiceContent?.TaskStatus === "completed") {
+      const fetchAlignmentData = async () => {
+        try {
+          const response = await fetch(voiceContent.TimestampsUri);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch timestamps: ${response.statusText}`);
+          }
+
+
+          const alignment = (await response.json()) as AlignmentData[];
+          wordsWithTiming = wordsWithPhonemesAndTiming(alignment);
+          audio = new Audio(voiceContent.OutputUri);
+          audio.play();
+        } catch (error) {
+          console.error("Error processing lipsync generation:", error);
+        }
+      };
+
+      fetchAlignmentData();
+    }
+
+    const wordsWithPhonemesAndTiming = (alignment: AlignmentData[]) => {
+      return alignment.map(({ word, start, end }) => ({
+        word,
+        phonemes: wordToPhonemes(word),
+        start,
+        end,
+      }));
+    };
+
+    const wordToPhonemes = (word: string) => {
+      return Array.from(word)
+        .map((char) => phonemeToMorph[char] || "")
+        .join("");
+    };
+
     const animate = () => {
       requestAnimationFrame(animate);
+
+      if (audio) {
+        const currentTime = audio.currentTime;
+        const currentPhoneme = wordsWithTiming.find(
+          ({ start, end }) => currentTime >= start && currentTime < end
+        );
+
+        if (currentPhoneme && currentPhoneme.phonemes !== previousPhoneme) {
+          previousPhoneme = currentPhoneme.phonemes;
+
+          dispatch(setOutput(currentPhoneme.word));
+
+          const phonemeArray = currentPhoneme.phonemes.split("");
+          let delay = 0;
+
+          timeouts.forEach(clearTimeout);
+          timeouts.length = 0;
+
+          phonemeArray.forEach((phoneme: string | number) => {
+            const timeout = setTimeout(() => {
+              const viseme = match[phonemeToMorph[phoneme]];
+              const morphTargetIndex = headObject?.morphTargetDictionary?.[viseme];
+
+              if (morphTargetIndex !== undefined && headObject?.morphTargetInfluences) {
+                headObject.morphTargetInfluences[morphTargetIndex] = 0.7;
+
+                setTimeout(() => {
+                  headObject.morphTargetInfluences![morphTargetIndex] = 0;
+                }, 200);
+              }
+            }, delay);
+            delay += 300;
+            timeouts.push(timeout);
+          });
+        }
+
+        if (!currentPhoneme) {
+          previousPhoneme = null;
+          timeouts.forEach(clearTimeout);
+          timeouts.length = 0;
+        }
+      }
+
       renderer.render(scene, camera);
     };
 
-    // Handle window resize
+    animate();
+
     const handleResize = () => {
       if (!canvasRef.current) return;
       camera.aspect =
@@ -76,18 +210,18 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
         canvasRef.current.clientHeight
       );
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       renderer.dispose();
     };
-  }, [modelUrl]);
+  }, [preloadedModel, voiceContent, audio]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="w-56 h-56 rounded-full object-cover border border-black"
+      className="w-56 h-56 rounded-full object-cover border-4 border-customColor hover:border-customDark"
     />
   );
 };

@@ -1,5 +1,54 @@
 import { ElevenLabsClient, play } from "elevenlabs";
 
+export async function POST(request) {
+  try {
+    const { text } = await request.json();
+    const url = 'https://api.v7.unrealspeech.com/speech';
+    
+    const options = {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        "Authorization": `Bearer ${process.env.UNREAL_VOICE}`,
+      },
+      body: JSON.stringify({
+        Text: text, 
+        VoiceId: 'Scarlett',
+        Bitrate: '192k',
+        Speed: '0',
+        Pitch: '1',
+        TimestampType: 'word'
+      })
+    };
+
+    const response = await fetch(url, options);
+    
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.statusText}`);
+    }
+    
+    const result = await response.json();
+    console.log(result);
+
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+
+
+/* 
 const elevenlabs = new ElevenLabsClient({
   apiKey: process.env.ELEVEN_LABS_KEY,
 });
@@ -30,3 +79,4 @@ export async function POST(request) {
     });
   }
 }
+*/

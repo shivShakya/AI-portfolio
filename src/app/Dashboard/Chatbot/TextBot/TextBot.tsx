@@ -1,18 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "@/redux/categorySlice";
 import { setTextResponse } from "@/redux/responseSlice";
 import { Loader2 } from "lucide-react";
 import type { RootState } from "@/redux/store";
 
+
 function TextBot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [sessionId] = useState(() => crypto.randomUUID()); // Generate a unique session ID once
+  const [voiceOutput , setVoiceOutput] = useState("");
+  const [sessionId] = useState(() => crypto.randomUUID()); 
   const dispatch = useDispatch();
   const textResponse = useSelector((state: RootState) => state.response.value);
+  const inputText = useSelector((state: RootState) => state.input.value);
+  const outputText = useSelector((state: RootState) => state.output.value);
+ 
+ useEffect(()=>{
+      setVoiceOutput((prevText) =>prevText+" "+ outputText );
+ },[outputText]);
+
+ useEffect(()=>{
+  setVoiceOutput("User: " + " "+inputText + "\n" + "AI: ");
+},[inputText])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,8 +70,8 @@ function TextBot() {
         ) : error ? (
           <p className="text-red-600">{error}</p>
         ) : (
-          <p className="text-customBlue font-extrabold p-3 whitespace-pre-wrap">
-            {textResponse || "Shivam Shakya"}
+          <p className="text-customBlue font-extrabold p-3 whitespace-pre-wrap break-words w-full overflow-hidden">
+            {textResponse || voiceOutput}
           </p>
         )}
       </div>

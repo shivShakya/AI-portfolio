@@ -2,6 +2,9 @@
 import React from "react";
 import TextBot from "./TextBot/TextBot";
 import VoiceBot from "./VoiceBot/VoiceBot";
+import Stt from "./Stt/Stt";
+
+
 
 interface ChatbotProps {
     isHovered : boolean;
@@ -23,9 +26,11 @@ export default function Chatbot({isHovered} : ChatbotProps) {
           <div className="h-full w-full flex justify-center items-center flex-col bg-white border border-black rounded-[2%]">
              <div className="h-3/4 flex justify-between items-center flex-col">
                 
-                <div  className="w-56 h-56">
+               <Stt>
+                  <div className="w-56 h-56 hover:cursor-pointer">
                      <VoiceBot modelUrl="./me.glb" />
-                </div>
+                  </div>
+               </Stt>
                    <TextBot />
               </div>
           </div>

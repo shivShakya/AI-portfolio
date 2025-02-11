@@ -13,7 +13,6 @@ import Resume from "./Resume/page";
 import Chatbot from "./Chatbot/Chatbot";
 import type { RootState } from '../../redux/store'
 import { useSelector } from 'react-redux'
-import Stt from "./Chatbot/Stt/Stt";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState<string>("");
@@ -67,7 +66,6 @@ export default function Home() {
 
         <div className="flex w-full md:w-1/4 z-50 fixed bottom-0 justify-center gap-3 py-2 bg-customColor border-t text-white border-gray-500">
         <button  onClick={()=>setIsHovered(!isHovered)} > Chatbot </button>
-          <Stt/>
         </div>
 
         {showOverlay && (
