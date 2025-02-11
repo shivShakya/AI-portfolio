@@ -1,5 +1,3 @@
-import { ElevenLabsClient, play } from "elevenlabs";
-
 export async function POST(request) {
   try {
     const { text } = await request.json();

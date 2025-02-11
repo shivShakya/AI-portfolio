@@ -29,7 +29,7 @@ const Stt: React.FC<SttProps> = ({ children }) => {
   if (!isClient) return null;
 
   if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
+    return <span>Browser does not support speech recognition.</span>;
   }
 
   const toggleListening = () => {

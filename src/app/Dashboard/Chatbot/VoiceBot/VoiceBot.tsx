@@ -12,7 +12,7 @@ interface ThreeJSModelViewerProps {
 }
 
 interface AlignmentData {
-  phonemes: any;
+  phonemes: string;
   word: string;
   start: number;
   end: number;
