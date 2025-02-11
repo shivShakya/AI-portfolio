@@ -19,7 +19,7 @@ const Stt: React.FC<SttProps> = ({ children }) => {
   const [isListening, setIsListening] = useState<boolean>(false);
   const dispatch = useDispatch();
   let finalTranscript = "";
-
+  console.log({apiResponse});
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -98,8 +98,8 @@ const Stt: React.FC<SttProps> = ({ children }) => {
         } else {
           setApiResponse(`Failed to fetch API: ${response.statusText}`);
         }
-      } catch (error: any) {
-        setApiResponse(`Error: ${error.message}`);
+      } catch (error: unknown) {
+        setApiResponse(`Error:`);
       } finally {
         resetTranscript();
       }
@@ -122,8 +122,8 @@ const Stt: React.FC<SttProps> = ({ children }) => {
 
       const data = await response.json();
       dispatch(setVoiceContent(data));
-    } catch (error: any) {
-      console.error("Failed to fetch voice bot data:", error.message);
+    } catch (error: unknown) {
+      console.error("Failed to fetch voice bot data.");
     }
   };
 
