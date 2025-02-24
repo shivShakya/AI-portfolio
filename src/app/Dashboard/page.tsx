@@ -149,7 +149,7 @@ export default function Home() {
          presentationMode && (
           <div className="flex w-full md:w-1/4 z-0 fixed bottom-20 justify-center items-center gap-4 p-4 bg-transparent">
           <div className="w-full md:w-3/4 p-2 border-2 border-gray-600 shadow-xl rounded-xl text-black transition-transform duration-300 ease-in-out">
-               Open Presentation mode to allow AI to present the Shivam's portfolio . 
+               Open Presentation mode to allow AI to present the Shivam&apos;s portfolio . 
           </div>
           </div>
          )
