@@ -1,3 +1,4 @@
+/*
 "use client";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -332,3 +333,4 @@ composer.addPass(bloomPass);
 };
 
 export default Canvas;
+*/
