@@ -18,7 +18,7 @@ const Inst: React.FC = () => {
           <FaTimes />
         </button>
         <div className="text-red-500 text-2xl font-bold mb-4 text-center">Work In Development</div>
-        <div className="text-white text-xl font-bold mb-4 text-center"> It is a simulation home where characters make their own decisions. People can join in real-time, have conversations with them, and influence the built-in characters' daily activities by giving commands.</div>
+        <div className="text-white text-xl font-bold mb-4 text-center"> It is a simulation home where characters make their own decisions. People can join in real-time, have conversations with them, and influence the built-in character&apos;s daily activities by giving commands.</div>
         <h2 className="text-2xl font-bold mb-4 text-center">Game Controls</h2>
         <div className="space-y-3 text-center">
           <p><span className="font-semibold">Move:</span> <kbd className="bg-gray-700 p-1 rounded">W</kbd> <kbd className="bg-gray-700 p-1 rounded">A</kbd> <kbd className="bg-gray-700 p-1 rounded">S</kbd> <kbd className="bg-gray-700 p-1 rounded">D</kbd> or <FaArrowUp className="inline" /> <FaArrowLeft className="inline" /> <FaArrowDown className="inline" /> <FaArrowRight className="inline" /></p>

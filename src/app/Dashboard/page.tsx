@@ -13,7 +13,7 @@ import type { RootState } from '../../redux/store'
 import { useSelector , useDispatch } from 'react-redux';
 import ProjectDetail from "./Project/ProjectDetail";
 import Portfolio from "./Portfolio/page";
-import { FaChevronDown, FaChevronUp, FaPlay } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ChatbotPhone from "./Chatbot/ChatbotPhone";
 import { setDevice } from "@/redux/deviceSlice";
 
@@ -30,6 +30,8 @@ export default function Home() {
   const [presentationMode,  setPresentationMode] = useState(false);
   const dispatch = useDispatch();
   const device = useSelector((state: RootState) => state.device.value);
+
+  setPresentationMode(false);
   useEffect(() => {
     const checkScreenSize = () => {
       if(window.innerWidth < 768){

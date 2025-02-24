@@ -21,7 +21,7 @@ function TextBot() {
   );
   
   const dispatch = useDispatch();
-  let textResponse = useSelector((state: RootState) => state.response.value);
+  const textResponse = useSelector((state: RootState) => state.response.value);
   const inputText = useSelector((state: RootState) => state.input.value);
   const outputText = useSelector((state: RootState) => state.output.value);
   const device = useSelector((state: RootState) => state.device.value);
