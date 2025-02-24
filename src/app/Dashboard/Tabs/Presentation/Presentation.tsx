@@ -5,6 +5,7 @@ import { useState } from 'react';
 const Presentation = () => {
   const [response, setResponse] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  console.log({response});
 
   const fetchPresentation = async () => {
     setLoading(true);
