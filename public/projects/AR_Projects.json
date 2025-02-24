@@ -1,5 +1,7 @@
 {
   "title": "AR and 3D Interactive Projects",
+  "link" : "",
+  "github_link" : "",
   "description": "As technology advances, Augmented Reality (AR) and 3D interactive experiences are becoming more immersive and engaging. I have developed multiple projects leveraging AR, WebAR, and 3D rendering to create unique user interactions. These projects include AR lenses, WebAR games, image tracking applications, and real-time 3D web-based games, demonstrating expertise in AR development, real-time rendering, and interactive storytelling.",
   "features": [
     "Developed a Snapchat AR lens featuring the Trishul from the movie *Brahmāstra*, allowing users to experience its power in augmented reality.",

@@ -1,5 +1,7 @@
 {
     "title": "Aamchi Mess - College Mess Management App",
+    "link" : "",
+    "github_link" : "https://github.com/shivShakya/AamchiMess",
     "description": "This project was assigned to our group as part of our software engineering course. We chose this topic because we were facing daily problems related to the mess while living in the college hostel. For this project, we developed an Android application and followed the principles and best practices of software engineering. Our process involved requirement analysis, design and architecture, development, testing, and deployment. Working on this project provided us with valuable learning experiences. I had the opportunity to lead the team and mentor its members as I had knowledge about most of the technologies involved. I provided necessary training to my team members on Android Studio, Flask framework for the backend, and also introduced them to MongoDB. This project enhanced my skills in team building and leadership, and gave me a better understanding of how work is carried out in professional settings. Overall, it was a rewarding experience.",
     "features": [
       "User-friendly interface for students to manage their mess subscriptions",

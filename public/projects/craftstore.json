@@ -1,5 +1,7 @@
 {
   "title": "Craft Store - Handcrafted E-commerce Platform",
+  "link" : "https://github.com/shivShakya/CraftStoreMERN",
+  "github_link" : "https://github.com/shivShakya/CraftStoreEcommerce",
   "description": "This project is something I've always wanted to work on... Problem: In my childhood, I used to enjoy making papercraft, designing toys, and creating architectural models. I often wondered what if I could sell these creations and earn my own pocket money.Furthermore, I noticed that there are many talented handicraft workers who lack a proper platform to showcase and sell their products. They often rely on local markets and struggle to reach a larger audience, limiting their growth potential. This is where my website, 'Craft Store,' comes into play.",
   "features": [
     "Authentification and Authorization using jwt",

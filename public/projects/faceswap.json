@@ -1,5 +1,7 @@
 {
     "title": "Bingo FaceSwap - AI-Powered Face Swapping",
+    "link" : "",
+    "github_link" : "https://github.com/shivShakya/DepartmentProjectMERN",
     "description": "As a part of the VR AR MR team, I contributed to the development of **Bingo FaceSwap**, an AI-driven real-time face-swapping application. This project combined **computer vision, deep learning, and interactive media technologies** to create seamless face transformations, enabling users to swap faces in real-time while maintaining natural expressions and facial details.",
     "features": [
       "AI-powered real-time face swapping with high accuracy",

@@ -9,6 +9,7 @@ import { UUID } from "@datastax/astra-db-ts";
 
 // Astra DB Configuration
 
+
 const inference = new HfInference(hfToken);
 
 
@@ -30,7 +31,17 @@ const readJSONFiles = (dir = '') => {
         results = results.concat(readDirectory(filePath));
       } else if (path.extname(file) === '.json') {
         const content = fs.readFileSync(filePath, 'utf8');
-        results.push(JSON.parse(content));
+
+        if (!content.trim()) {
+          console.warn(`Warning: ${filePath} is empty.`);
+          return;
+        }
+
+        try {
+          results.push(JSON.parse(content));
+        } catch (error) {
+          console.error(`Error parsing JSON file: ${filePath}`, error.message);
+        }
       }
     });
 
@@ -39,6 +50,7 @@ const readJSONFiles = (dir = '') => {
 
   return readDirectory(directoryPath);
 };
+
 
 
 

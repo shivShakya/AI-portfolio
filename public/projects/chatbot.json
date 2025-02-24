@@ -1,5 +1,7 @@
 {
     "title": "3D Chatbot",
+    "link" : "",
+    "github_link" : "https://github.com/shivShakya/AamchiMess",
     "description": "An interactive chatbot powered by 3D graphics that enhances user engagement with immersive conversational experiences. The chatbot can be integrated into websites and VR environments.",
     "features": [
       "Realistic 3D model integration",

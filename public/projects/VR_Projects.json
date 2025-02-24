@@ -1,5 +1,7 @@
 {
     "title": "VR Interactive Experiences",
+    "link" : "",
+    "github_link" : "https://github.com/shivShakya/DepartmentProjectMERN",
     "description": "Virtual Reality (VR) is transforming how we experience digital environments by creating immersive, interactive spaces. I have developed multiple VR projects that enhance user engagement through realistic environments and interactive elements. These projects include a virtual showroom for shoes and a heritage walk experience, demonstrating expertise in 3D modeling, environment design, and real-time rendering.",
     "features": [
       "Developed a **VR Shoes Showroom**, allowing users to explore and interact with realistic 3D models of shoes in a fully immersive virtual space.",

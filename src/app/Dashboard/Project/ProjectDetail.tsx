@@ -1,9 +1,14 @@
 "use client"
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { Link as LinkIcon, Icon } from "lucide-react";
+import { burger } from '@lucide/lab';
 
 
 interface ProjectData {
   title: string;
+  link: string;
+  github_link: string;
   description: string;
   features: string[];
   technologies: string[];
@@ -16,6 +21,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (slug) {
+      console.log({slug});
       const cleanSlug = slug.split("-").slice(0, -1).join("-");
       console.log({cleanSlug});
       fetch(`/projects/${cleanSlug}.json`)
@@ -33,7 +39,11 @@ export default function ProjectDetail({ slug }: { slug: string }) {
     
 
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-customBlue mb-4">{projectData.title}</h1>
+       <div className='flex justify-center items-center'>
+       <h1 className="text-4xl font-bold text-customBlue mb-4">{projectData.title}</h1>
+          <Link className="text-xl font-bold text-customDark m-2" href={projectData.link}  target="_blank" rel="noopener noreferrer"><LinkIcon className='text-customBlue' /></Link>
+          <Link className="text-xl font-bold text-customDark m-2" href={projectData.github_link}><Icon iconNode={burger} className='text-customBlue' /></Link>
+       </div>
         <video
              src={projectData.videoLink}
              className="w-full h-96 object-cover rounded-lg pointer-events-none"

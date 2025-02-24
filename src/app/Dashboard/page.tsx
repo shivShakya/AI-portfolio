@@ -25,7 +25,7 @@ export default function Home() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const category = useSelector((state: RootState) => state.category.value);
-  const path = useSelector((state: RootState) => state.path.value);
+  let path = useSelector((state: RootState) => state.path.value);
   const [showMessage, setShowMessage] = useState(false);
   const [presentationMode] = useState(false);
   const dispatch = useDispatch();
@@ -88,6 +88,7 @@ export default function Home() {
     }
 
     if (path) {
+        path = path + "-" + Date.now();
         setCurrentProject(path);
     }
 }, [category, path]);

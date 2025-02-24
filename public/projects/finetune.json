@@ -1,5 +1,7 @@
 {
     "title": "Controlling Image Generation with SAM-guided Fine-Tuning",
+    "link": "https://colab.research.google.com/drive/17Qr6c4na8VguH4YLjG8A26j4Isbj5TLb",
+    "github_link": "",
     "description": "As I observed the rapid growth of image generation models, I realized that controlling the output would open new dimensions in every field. I believe the first step toward achieving this control is fine-tuning foundational models. After extensive research, I discovered SAM—a segmentation model that creates segments in images by identifying different parts. Leveraging this, I was able to inpaint specific segments using text, paving the way for precise and controlled image generation.",
     "features": [
       "Fine-tuning of foundational image generation model Stable diffusion model",
