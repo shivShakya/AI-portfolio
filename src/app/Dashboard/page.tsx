@@ -27,11 +27,10 @@ export default function Home() {
   const category = useSelector((state: RootState) => state.category.value);
   const path = useSelector((state: RootState) => state.path.value);
   const [showMessage, setShowMessage] = useState(false);
-  const [presentationMode,  setPresentationMode] = useState(false);
+  const [presentationMode] = useState(false);
   const dispatch = useDispatch();
   const device = useSelector((state: RootState) => state.device.value);
 
-  setPresentationMode(false);
   useEffect(() => {
     const checkScreenSize = () => {
       if(window.innerWidth < 768){
