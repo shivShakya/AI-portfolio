@@ -1,27 +1,57 @@
 [
-    {
-      "title": "3D Developer at VRARMR, Delhi",
-      "duration": "Current role",
-      "description": [
-        "Developed immersive games and campaigns using technologies like Unity, Unreal Engine, Three.js, and Babylon.js.",
-        "Worked on creating engaging 3D experiences for various campaigns."
-      ]
-    },
-    {
-      "title": "Three.js Full Stack Intern at Renderpub",
-      "duration": "Internship",
-      "description": [
-        "Developed a 3D Editor and pipeline for creating metaverses.",
-        "Contributed to enhancing the user experience in metaverse development using Three.js."
-      ]
-    },
-    {
-      "title": "Freelance 3D Developer",
-      "duration": "1 Month",
-      "description": [
-        "Created a walkthrough application using React-Three-Fiber.",
-        "Delivered a high-quality, interactive 3D experience for a client."
-      ]
-    }
-  ]
-  
+  {
+    "title": "3D Developer at VRARMR, Delhi",
+    "duration": "Current role",
+    "technologies" : [],
+    "description": [
+      "At VRARMR, I work on diverse projects, including 3D development, full-stack applications, and AI solutions.",
+      "Over the past year, I have contributed to various projects such as a real-time 3D chatbot and video/audio editing software using FFmpeg.",
+      "Optimized AI model performance by reducing latency for generative models.",
+      "Utilized AWS hosting services for auto-scaling and load balancing to improve reach.",
+      "Developed creative solutions to enhance marketing strategies, such as a web-based face-swapping tool and AI-powered celebrity-customized videos for marketing using lip-sync and voice cloning.",
+      "Built an AR instant app with an enhanced tracking system for a seamless user experience.",
+      "Created multiple AR gamified templates to improve user engagement and showcase AR capabilities.",
+      "Developed VR walkthroughs using web-based libraries such as Three.js and Babylon.js."
+    ],
+    "Important links": [
+        
+    ]
+  },
+  {
+    "title": "Full Stack Intern at Renderpub, Bengaluru",
+    "duration": "Internship (6 months)",
+    "technologies" : [],
+    "description": [
+      "Renderpub is a product-based company.",
+      "Developed a 3D editor and pipeline for creating metaverses.",
+      "Worked on generalizing the codebase to support various solutions.",
+      "The workflow involved creating a web-based 3D meeting platform similar to Google Meet or Microsoft Teams, allowing users to meet in a virtual environment, explore spaces, and communicate.",
+      "Enabled users to design their own virtual spaces by uploading 3D models, configuring settings, and instantly creating their metaverse."
+    ],
+    "Important links": []
+  },
+  {
+    "title": "Freelance 3D Developer",
+    "duration": "1 Month",
+    "technologies" : [],
+    "description": [
+      "Developed a walkthrough application using React-Three-Fiber.",
+      "Delivered a high-quality, interactive 3D experience for a client.",
+      "Created a VR experience using React and React-Three-Fiber as a paid opportunity."
+    ],
+    "Important links": []
+  },
+  {
+    "title": "Intern at Novelty AR",
+    "duration": "5 months",
+    "technologies" : [],
+    "description": [
+      "Novelty AR is a startup focused on creating AR solutions for marketing strategies.",
+      "My daily tasks involved developing gamified AR templates using Zapper.",
+      "This experience enhanced my basic skills in HTML, CSS, JavaScript, and Three.js, which helped me further in my career.",
+      "I worked at this company during my college years.",
+      "It was a paid opportunity."
+    ],
+    "Important links": []
+  }
+]

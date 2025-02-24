@@ -1,40 +1,51 @@
 [
     {
+      "title": "Full Stack Development",
+      "skills": [
+        "React Js",
+        "Next Js",
+        "Node js",
+        "HTML/CSS",
+        "Tailwind css",
+        "GSAP",
+        "Fast API",
+        "Flask"
+      ]
+    },
+    {
+      "title": "Machine learning and AI",
+      "skills": [
+        "Machine Learning Algorithms",
+        "Deep learning Algorithms",
+        "NLP",
+        "Langchain",
+        "Langgraph",
+        "Vector Database"
+      ]
+    },
+    {
       "title": "3D Development",
       "skills": [
         "Three.js",
-        "React-Three-Fiber",
         "Babylon.js",
-        "Unity",
-        "Unreal Engine"
-      ]
-    },
-    {
-      "title": "Web Development",
-      "skills": [
-        "React.js",
-        "Flask",
-        "FastAPI",
-        "Django",
-        "JavaScript, HTML, CSS"
-      ]
-    },
-    {
-      "title": "3D Modeling & Asset Creation",
-      "skills": [
-        "Blender",
-        "GLTF/GLB Pipeline",
-        "3D Optimization"
+        "Zapper",
+        "Mediapipe",
+        "8th wall",
+        "snap lenses",
+        "Blender"
       ]
     },
     {
       "title": "Other Skills",
       "skills": [
         "Firebase (Firestore)",
+        "Redux (State Management)",
+        "Structured code",
         "API Development and Integration",
         "Responsive Design and Mobile Optimization",
         "Video Processing (FFmpeg)",
-        "Machine Learning Basics (CNN, LSTM for Image Captioning)"
+        "Mathematics",
+        "Machine Learning (CNN, LSTM for Image Captioning)"
       ]
     }
   ]

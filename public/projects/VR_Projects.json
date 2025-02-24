@@ -1,0 +1,25 @@
+{
+    "title": "VR Interactive Experiences",
+    "description": "Virtual Reality (VR) is transforming how we experience digital environments by creating immersive, interactive spaces. I have developed multiple VR projects that enhance user engagement through realistic environments and interactive elements. These projects include a virtual showroom for shoes and a heritage walk experience, demonstrating expertise in 3D modeling, environment design, and real-time rendering.",
+    "features": [
+      "Developed a **VR Shoes Showroom**, allowing users to explore and interact with realistic 3D models of shoes in a fully immersive virtual space.",
+      "Created **A Heritage Walk VR Experience**, enabling users to navigate through a 3D-rendered historical environment, providing an interactive and educational tour.",
+      "Integrated real-time interactions, allowing users to inspect objects, change views, and experience the space as if physically present.",
+      "Optimized performance for seamless rendering, ensuring a smooth experience across VR headsets and web-based VR platforms."
+    ],
+    "technologies": [
+      "A-Frame (WebVR)",
+      "Three.js",
+      "Unity (VR Development)",
+      "Blender (3D Modeling & Texturing)",
+      "WebXR API for immersive web-based VR experiences"
+    ],
+    "useCases": [
+      "Virtual showrooms for product visualization",
+      "Interactive heritage and cultural experiences",
+      "Educational and museum-based VR tours",
+      "E-commerce enhancement through immersive product displays"
+    ],
+    "videoLink": "/vr.mov"
+  }
+  

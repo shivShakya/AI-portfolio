@@ -1,0 +1,18 @@
+{
+    "title": "3D Chatbot",
+    "description": "An interactive chatbot powered by 3D graphics that enhances user engagement with immersive conversational experiences. The chatbot can be integrated into websites and VR environments.",
+    "features": [
+      "Realistic 3D model integration",
+      "Voice and text-based interactions",
+      "Custom animations and gestures",
+      "Cross-platform compatibility",
+      "Customised Conversation Story based on file uploads."
+    ],
+    "technologies": ["Three.js", "WebGL", "Langchain Framework" , "Python"],
+    "useCases": [
+      "Customer support on websites",
+      "Educational and training platforms",
+      "Immersive storytelling experiences"
+    ],
+    "videoLink": "/3dchat.mov"
+  }

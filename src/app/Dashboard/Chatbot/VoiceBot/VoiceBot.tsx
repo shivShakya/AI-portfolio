@@ -5,6 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSelector , useDispatch } from "react-redux";
 import { RootState } from "@/redux/store";
 import { setOutput } from "@/redux/outputTextSlice";
+import { setVoiceContent } from "@/redux/voiceContent";
 
 
 interface ThreeJSModelViewerProps {
@@ -28,6 +29,7 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [preloadedModel, setPreloadedModel] = useState<THREE.Object3D | null>(null);
   const voiceContent = useSelector((state: RootState) => state.voice.value) as unknown as VoiceState;
+  const device = useSelector((state: RootState) => state.device.value);
   const headObject = preloadedModel?.getObjectByName("Wolf3D_Head") as THREE.Mesh & {
     morphTargetDictionary?: Record<string, number>;
     morphTargetInfluences?: number[];
@@ -98,7 +100,7 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
       canvasRef.current.clientWidth,
       canvasRef.current.clientHeight
     );
-    renderer.setClearColor(0x000000, 0);
+    renderer.setClearColor("#1E8787", 1);
 
     const ambientLight = new THREE.AmbientLight(0x404040, 4);
     scene.add(ambientLight);
@@ -127,6 +129,7 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
           wordsWithTiming = wordsWithPhonemesAndTiming(alignment);
           audio = new Audio(voiceContent.OutputUri);
           audio.play();
+          dispatch(setVoiceContent(null));
         } catch (error) {
           console.error("Error processing lipsync generation:", error);
         }
@@ -219,10 +222,17 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
   }, [preloadedModel, voiceContent, audio]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="w-56 h-56 rounded-full object-cover border-4 border-customColor hover:border-customDark"
-    />
+    <>
+     {
+        device !== 'mobile' ? <canvas
+        ref={canvasRef}
+        className="w-full h-auto max-w-[30vh] max-h-[30vh] mt-5 rounded-full border-4 border-customColor hover:border-customDark aspect-square"
+        /> : <canvas
+        ref={canvasRef}
+        className="w-full h-auto max-w-[25vh] max-h-[25vh] mt-1 rounded-full border-4 border-customColor hover:border-customDark aspect-square"
+        />
+    }
+    </>  
   );
 };
 

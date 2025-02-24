@@ -1,0 +1,23 @@
+{
+    "title": "Controlling Image Generation with SAM-guided Fine-Tuning",
+    "description": "As I observed the rapid growth of image generation models, I realized that controlling the output would open new dimensions in every field. I believe the first step toward achieving this control is fine-tuning foundational models. After extensive research, I discovered SAM—a segmentation model that creates segments in images by identifying different parts. Leveraging this, I was able to inpaint specific segments using text, paving the way for precise and controlled image generation.",
+    "features": [
+      "Fine-tuning of foundational image generation model Stable diffusion model",
+      "Utilizes SAM for effective segmentation and part identification",
+      "Text-guided inpainting for targeted modifications",
+      "Enhanced control over generated images"
+    ],
+    "technologies": [
+      "Foundational Image Generation Models",
+      "SAM (Segment Anything Model)",
+      "Text-guided inpainting techniques",
+      "Deep Learning Frameworks (PyTorch/TensorFlow)"
+    ],
+    "useCases": [
+      "Customized image generation for creative industries",
+      "Targeted inpainting for image restoration and editing",
+      "Enhanced generative art and media production"
+    ],
+    "videoLink": "/finetune.mp4"
+  }
+  

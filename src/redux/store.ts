@@ -5,13 +5,18 @@ import responseSlice from './responseSlice';
 import voiceSlice from './voiceContent';
 import inputSlice from './inputTextSlice';
 import outputSlice from './outputTextSlice';
+import pathSlice from './pathSlice';
+import deviceSlice from './deviceSlice';
+
 export const store = configureStore({
   reducer: {
     category: categoryReducer,
     response: responseSlice,
     voice: voiceSlice,
     input: inputSlice,
-    output: outputSlice
+    output: outputSlice,
+    path: pathSlice,
+    device: deviceSlice
   },
 })
 

@@ -1,0 +1,28 @@
+{
+    "title": "Meta Zoo - An Immersive Virtual Zoo Experience",
+    "description": "Meta Zoo is a Three.js-based multiplayer metaverse designed to provide an interactive and educational zoo experience for children. The platform leverages WebSockets for real-time multiplayer interactions, allowing users to explore a vibrant virtual zoo, interact with animals, and even take a ride on a toy train. With features like positional audio and an interactive drawing canvas, Meta Zoo creates an engaging and dynamic environment for kids to learn and play.",
+    "features": [
+      "Real-time multiplayer experience using WebSockets",
+      "Immersive 3D environment powered by Three.js",
+      "Positional audio for a realistic sound experience",
+      "Interactive animal interactions",
+      "Canvas drawing feature for creative exploration",
+      "Toy train ride for a fun zoo tour"
+    ],
+    "technologies": [
+      "Three.js",
+      "WebSockets",
+      "Node.js",
+      "Express.js",
+      "WebGL for immersive 3D rendering",
+      "Positional audio for spatial sound effects"
+    ],
+    "useCases": [
+      "Providing an engaging and educational experience for children",
+      "Enabling multiplayer interactions in a virtual zoo setting",
+      "Enhancing digital learning with immersive environments",
+      "Encouraging creativity through interactive elements like drawing"
+    ],
+    "videoLink": "./MetaZoo.mp4"
+  }
+  

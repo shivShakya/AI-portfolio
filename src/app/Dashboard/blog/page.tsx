@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import Tilt from "react-parallax-tilt";
-import Image from "next/image";
+//import Link from "next/link";
+//import Tilt from "react-parallax-tilt";
+//import Image from "next/image";
 
 interface BlogPost {
   id: number;
@@ -14,7 +14,7 @@ interface BlogPost {
 
 export default function Blog() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-
+  console.log({blogPosts});
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
@@ -32,7 +32,9 @@ export default function Blog() {
   return (
     <div className="flex flex-col justify-start items-center bg-gradient-to-br from-[#211516] to-[#0c1f33] bg-inherit w-full p-1 h-[300vh]">
       <h1 className="text-3xl font-bold text-cyan-50 mb-8">Our Blogs</h1>
+      <div className="text-red-500">Work In Progress</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        {/* 
         {blogPosts.map((post) => (
           <Tilt
             glareEnable={true}
@@ -60,6 +62,7 @@ export default function Blog() {
             </Link>
           </Tilt>
         ))}
+          */}
       </div>
     </div>
   );

@@ -1,25 +1,23 @@
 [
-    {
-      "title": "Formal Education",
-      "description": [
-        "While my formal education details are not included, I have built expertise in 3D development through self-learning, professional roles, and hands-on project work."
-      ]
-    },
-    {
-      "title": "Self-Learning and Professional Development",
-      "description": [
-        "Learned advanced 3D development tools and frameworks like Three.js, Unity, Unreal Engine, and Babylon.js.",
-        "Gained proficiency in Blender for 3D modeling and asset creation.",
-        "Strengthened skills in web development using React, Flask, FastAPI, and Django."
-      ]
-    },
-    {
-      "title": "Certifications and Achievements",
-      "description": [
-        "Completed projects and internships, such as a metaverse 3D editor at Renderpub and campaigns at VRARMR.",
-        "Delivered a professional 3D walkthrough as a freelance developer using React-Three-Fiber.",
-        "Continuously upgrading knowledge through real-world applications and self-driven projects."
-      ]
-    }
-  ]
-  
+  {
+    "title": "Master's from Pune University",
+    "description": [
+      "I completed my Master's in `Industrial Mathematics and Computer Applications` from the Department of Mathematics, Savitribai Phule Pune University.",
+      "With a strong mathematical background, I have a solid understanding of Machine Learning, Deep Learning, and AI-related tasks."
+    ]
+  },
+  {
+    "title": "Bachelor's from Delhi University",
+    "description": [
+      "I completed my Bachelor's in `Physical Science with Electronics` from Acharya Narendra Dev College, Delhi University.",
+      "During college, I was actively involved in various extracurricular activities, including joining the theatre society, Dhwani, and participating in different theatre forms such as street plays, stage plays, and mime.",
+      "I took part in various cultural festivals at prestigious institutions like IIT Delhi and IIT Bombay."
+    ]
+  },
+  {
+    "title": "Higher Secondary Education from Government Inter College, Mainpuri",
+    "description": [
+      "I completed my higher secondary education at Government Inter College, Mainpuri."
+    ]
+  }
+]

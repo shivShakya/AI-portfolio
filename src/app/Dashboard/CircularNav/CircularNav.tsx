@@ -54,10 +54,9 @@ export default function CircularNav({ onSelectPage }: CircularNavProps) {
         {circlePositions.map((pos, index) => (
           <div
             key={index}
-            className="absolute rounded-full  border-2 border-customColor w-12 h-12 md:w-[3vw] md:h-[3vw] cursor-pointer transition-all duration-300 transform-gpu group"
+            className="absolute rounded-full  border-2 border-customColor hover:bg-black w-12 h-12 md:w-[3vw] md:h-[3vw] hover:shadow-2xl cursor-pointer transition-all duration-300 transform-gpu group"
             style={{
               ...pos,
-              background: "transparent ",
               color: "#295074"
               
             }}
@@ -74,7 +73,7 @@ export default function CircularNav({ onSelectPage }: CircularNavProps) {
             </div>
 
             <div
-              className="absolute inset-0 flex items-center justify-center text-customColor font-bold text-lg"
+              className="absolute inset-0 flex items-center justify-center text-customColor hover:text-white hover:text-2xl font-bold text-lg"
               style={{
                 transform: `rotate(-${rotation}deg)`, 
               }}

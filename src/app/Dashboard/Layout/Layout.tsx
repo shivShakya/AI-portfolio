@@ -22,10 +22,10 @@ const Layout = () => {
     <div className="p-6 font-sans w-full bg-gray-100 text-gray-900">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {[
-          { title: "Programming", items: ["HTML/CSS", "Python", "JavaScript", "Java"] },
-          { title: "Skills", items: ["Problem Solving", "Teamwork", "Communication"] },
-          { title: "Work Experience", items: ["Software Engineer at Company X", "Frontend Developer at Company Y"] },
-          { title: "Education", items: ["Bachelor's in Computer Science", "Master's in Software Engineering"] },
+          { title: "Programming", items: ["Python", "Javascript", "Java", "c++"] },
+          { title: "Skills", items: ["AWS", "Machine learning","3d Development","Full Stack Development"] },
+          { title: "Work Experience", items: ["3D Developer at VRARMR, Delhi", "Full Stack Intern at Renderpub, Bengluru"] },
+          { title: "Education", items: ["Master's from Pune Unveristiy", "Bechlor's from Delhi University"] },
         ].map((section, index) => (
           <Tilt
             glareEnable={true}

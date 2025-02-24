@@ -12,7 +12,7 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         Text: text, 
-        VoiceId: 'Scarlett',
+        VoiceId: 'Dan',
         Bitrate: '192k',
         Speed: '0',
         Pitch: '1',

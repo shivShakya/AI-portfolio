@@ -1,0 +1,28 @@
+{
+  "title": "AR and 3D Interactive Projects",
+  "description": "As technology advances, Augmented Reality (AR) and 3D interactive experiences are becoming more immersive and engaging. I have developed multiple projects leveraging AR, WebAR, and 3D rendering to create unique user interactions. These projects include AR lenses, WebAR games, image tracking applications, and real-time 3D web-based games, demonstrating expertise in AR development, real-time rendering, and interactive storytelling.",
+  "features": [
+    "Developed a Snapchat AR lens featuring the Trishul from the movie *Brahmāstra*, allowing users to experience its power in augmented reality.",
+    "Created an AR-based **Secret Santa** game using **Zappar** and **Firebase**, enabling users to scan codes, unlock virtual gifts, and participate in a festive digital experience.",
+    "Built a **Ravan-themed AR game** using **Zappar**, allowing users to interact with 3D mythological elements and explore the Ramayana in an immersive way.",
+    "Implemented **MindAR-based Image Tracking**, where users could scan images to reveal 3D interactive content, enhancing storytelling and educational applications.",
+    "Developed a **Three.js Canvas Game**, featuring real-time 3D physics, collision detection, and interactive gameplay for a seamless web-based experience."
+  ],
+  "technologies": [
+    "Snapchat Lens Studio",
+    "Zappar (WebAR)",
+    "MindAR (WebAR)",
+    "Three.js",
+    "Firebase (Database & Authentication)",
+    "JavaScript & WebGL",
+    "Cannon.js (Physics Engine)"
+  ],
+  "useCases": [
+    "Marketing and promotion through AR lenses",
+    "Gamification of events and cultural experiences",
+    "Enhancing interactive storytelling with AR",
+    "Educational applications using image tracking",
+    "Web-based 3D gaming with real-time rendering"
+  ],
+  "videoLink": "/ar-3d-projects-demo.mp4"
+}

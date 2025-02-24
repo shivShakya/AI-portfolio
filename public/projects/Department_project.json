@@ -1,0 +1,25 @@
+{
+  "title": "Department Alumni & Placement Management System",
+  "description": "In my department, there was a growing need to collect and manage alumni data for placement activities while encouraging alumni to stay connected with the institution. Recognizing my potential in development, our HOD, Mr. Vinayak Sir, entrusted me with this opportunity. I took the initiative to form a team by convincing some of my juniors to collaborate, giving them hands-on experience in building a complete solution. \n\nInitially, the idea was to develop both a web and mobile application. However, I suggested implementing a Progressive Web App (PWA) instead, allowing users to install the website as an app with seamless mobile functionality. \n\nBeyond technical development, this project helped me hone my team management skills—motivating teammates, delegating tasks efficiently, and guiding them through modern development practices. The project was successfully implemented and is actively in use, with some juniors continuing to maintain and improve it.",
+  "features": [
+    "Students’ project updates for placement insights",
+    "Contact form for inquiries and networking",
+    "Automated email system to notify alumni and students about events",
+    "Like and comment system for engagement",
+    "Alumni form for data collection and interaction",
+    "PWA functionality for mobile-friendly usage"
+  ],
+  "technologies": [
+    "MERN Stack (MongoDB, Express.js, React.js, Node.js)",
+    "Progressive Web App (PWA) features",
+    "Email automation system",
+    "Redux for state management"
+  ],
+  "useCases": [
+    "Facilitating seamless alumni and student interactions",
+    "Enhancing placement-related data collection and management",
+    "Providing a centralized hub for alumni networking and event updates",
+    "Encouraging student engagement with department activities"
+  ],
+  "videoLink": "/department.mp4"
+}

@@ -52,21 +52,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full bg-gradient-to-br from-[#211516] to-[#0c1f33] p-6 space-y-8">
-      <div className="text-center text-white mt-8 md:mt-2 ">
-        <div className="flex justify-center space-x-4">
-          <a href="https://twitter.com/example" className="hover:underline">
-            Twitter
-          </a>
-          <a href="https://instagram.com/example" className="hover:underline">
-            Instagram
-          </a>
-        </div>
-        <p className="text-lg font-medium">Phone: 8318357977</p>
-        <p className="text-lg font-medium">Email: shivdu2000@gmail.com</p>
-      </div>
-
-      <div className="bg-[rgb(250,250,250)] p-10 rounded-3xl shadow-2xl w-full max-w-lg border border-gray-300 relative overflow-hidden">
+    <div className="flex flex-col justify-center items-center w-full h-full bg-gradient-to-br from-[#211516] to-[#0c1f33] p-6 space-y-8">
+      <div className="bg-[rgb(250,250,250)] p-10 rounded-sm md:rounded-3xl shadow-2xl w-full max-w-lg border border-gray-300 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#1E8787] opacity-5 rounded-3xl"></div>
 
         <h1 className="text-4xl font-bold text-[#0c1f33] mb-8 text-center relative z-10">

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const categorySlice = createSlice({
   name: 'category',
-  initialState: { value: 'blog' }, 
+  initialState: { value: 'portfolio' }, 
   reducers: {
     setCategory: (state, action) => {
       state.value = action.payload 

@@ -1,0 +1,24 @@
+{
+    "title": "Bingo FaceSwap - AI-Powered Face Swapping",
+    "description": "As a part of the VR, AR, and MR team, I contributed to the development of **Bingo FaceSwap**, an AI-driven real-time face-swapping application. This project combined **computer vision, deep learning, and interactive media technologies** to create seamless face transformations, enabling users to swap faces in real-time while maintaining natural expressions and facial details.",
+    "features": [
+      "AI-powered real-time face swapping with high accuracy",
+      "Deep learning-based facial recognition and transformation",
+      "Smooth integration with AR & MR environments for interactive experiences",
+      "Optimized performance for real-time processing across multiple platforms"
+    ],
+    "technologies": [
+      "Fast API",
+      "inswapper model for face swapping",
+      "MediaPipe & Dlib for facial landmark tracking",
+      "GFPGAN face enhancing models for best quality.",
+      "AWS EC2 ,load balancing and Auto scaling techniques."
+    ],
+    "useCases": [
+      "Virtual avatars and digital entertainment",
+      "Live face-swapping for social media and video apps",
+      "AI-driven content creation and real-time video editing"
+    ],
+    "videoLink": "/faceswap.mp4"
+  }
+  

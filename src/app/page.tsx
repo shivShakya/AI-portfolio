@@ -9,7 +9,7 @@ const Test: React.FC = () => {
     <div className="p-6 font-sans">
       <div className="flex justify-center md:justify-end items-center mb-4">
         <Link
-          href="/Canvas"
+          href="/Metaverse"
           className="relative flex items-center px-9 py-2 border-4 border-customColor hover:text-white font-semibold rounded-3xl shadow-md hover:bg-customColor focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
           Enter to Metaverse

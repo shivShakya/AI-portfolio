@@ -7,6 +7,9 @@ import { useDispatch } from "react-redux";
 //import { setTextResponse } from "@/redux/responseSlice";
 import { setVoiceContent } from "@/redux/voiceContent";
 import { setInput } from "@/redux/inputTextSlice";
+import { setPath } from "@/redux/pathSlice";
+import { Mic, MicOff } from "lucide-react";
+
 
 interface SttProps {
   children?: React.ReactNode;
@@ -15,7 +18,13 @@ interface SttProps {
 const Stt: React.FC<SttProps> = ({ children }) => {
   const [isClient, setIsClient] = useState<boolean>(false);
   const [apiResponse, setApiResponse] = useState<string>("");
-  const [sessionId] = useState<string>(() => crypto.randomUUID());
+  const [sessionId] = useState<string>(() =>
+    typeof crypto?.randomUUID === "function"
+      ? crypto.randomUUID()
+      : Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15)
+  );
+  
   const [isListening, setIsListening] = useState<boolean>(false);
   const dispatch = useDispatch();
   let finalTranscript = "";
@@ -94,6 +103,15 @@ const Stt: React.FC<SttProps> = ({ children }) => {
           if (apiResponseData && apiResponseData.link) {
             dispatch(setCategory(apiResponseData.link));
           }
+
+          if (apiResponseData?.path) {
+            console.log({ path: apiResponseData.path });
+            dispatch(setPath(apiResponseData.path.length > 0 ? apiResponseData.path[0] : ""));
+      } else {
+            dispatch(setPath(""));
+      }
+
+
          // dispatch(setTextResponse(apiResponseData.response));
         } else {
           setApiResponse(`Failed to fetch API: ${response.statusText}`);
@@ -136,7 +154,12 @@ const Stt: React.FC<SttProps> = ({ children }) => {
   };
 
   return (
-    <div onClick={toggleListening}>
+    <div onClick={toggleListening} className="w-full flex justify-end items-end">
+       {
+         isListening ?
+           <Mic className="hover:cursor-pointer text-black"></Mic> :
+           <MicOff className="hover:cursor-pointer text-black"></MicOff>
+       }
       {children}
     </div>
   );

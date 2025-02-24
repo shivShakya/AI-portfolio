@@ -1,0 +1,23 @@
+{
+  "title": "Fine-Tuning Stable Diffusion with Meta Segmentation",
+  "description": "While working with AI-generated images, I realized that generating precise and structured outputs often requires more than just a general diffusion model. Fine-tuning a model with domain-specific knowledge can significantly enhance its capabilities. In this project, I fine-tuned Stable Diffusion with Meta's segmentation model to improve image generation by incorporating segmentation masks. This approach allows the model to understand and generate well-structured images with clear object boundaries. Over two months, I explored diffusion models, segmentation techniques, and deep learning optimizations to build a system capable of refining image generation using segmentation guidance. The project provided hands-on experience in model fine-tuning, dataset preprocessing, training deep learning models, and deploying AI-powered image generation systems.",
+  "features": [
+    "Fine-tuned Stable Diffusion with Meta’s segmentation model",
+    "Improved object segmentation and structured image generation",
+    "Supports multi-class segmentation masks for guided image generation",
+    "Custom dataset training for domain-specific applications"
+  ],
+  "technologies": [
+    "Stable Diffusion",
+    "Meta’s segmentation model",
+    "Hugging Face Transformers & Diffusers",
+    "PyTorch",
+    "Automatic1111 Web UI"
+  ],
+  "useCases": [
+    "Generating structured images with refined segmentation control",
+    "Creating domain-specific AI-generated content with guided masks",
+    "Improving AI-generated assets for gaming, design, and media"
+  ],
+  "videoLink": "/finetune.mp4"
+}

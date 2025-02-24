@@ -1,57 +1,63 @@
 [
     {
-      "id": 1,
+      "id": "face-recognition",
       "title": "Face Recognition System",
       "description": "A robust system for facial detection and recognition.",
-      "image": "/images/face-recognition.jpg"
+      "image": "/face-recognition.gif"
     },
     {
-      "id": 2,
+      "id": "craftstore",
       "title": "CraftStore",
       "description": "An e-commerce platform for creative craft products.",
-      "image": "/images/craftstore.jpg"
+      "image": "/craftstore.gif"
     },
     {
-      "id": 3,
+      "id": "zoo",
+      "title": "Meta Zoo",
+      "description": "An Interactive Zoo Metaverse",
+      "image": "/zoo.gif"
+    },
+    {
+      "id": "Aamchi_mess",
+      "title": "A Mess Management System",
+      "description": "An Interactive Zoo Metaverse",
+      "image": "/aamchi_mess.gif"
+    },
+    {
+      "id": "Department_project",
+      "title": "A Department Project",
+      "description": "An Interactive Zoo Metaverse",
+      "image": "/department.gif"
+    },
+    {
+      "id": "finetune",
       "title": "Fine-tuning Stable Diffusion Model",
       "description": "A custom-trained diffusion model for image generation.",
-      "image": "/images/stable-diffusion.jpg"
+      "image": "/finetune.webp"
     },
     {
-      "id": 4,
-      "title": "AI Swiper Simulator",
-      "description": "An AI-powered simulator for user interaction.",
-      "image": "/images/ai-swiper.jpg"
-    },
-    {
-      "id": 5,
+      "id": "chatbot",
       "title": "3D Chatbot",
       "description": "An interactive chatbot powered by 3D elements.",
-      "image": "/images/3d-chatbot.jpg"
+      "image": "/3dchatbot.gif"
     },
     {
-      "id": 6,
-      "title": "FaceSwap",
-      "description": "AI-based face-swapping application for fun and creativity.",
-      "image": "/images/faceswap.jpg"
+      "id": "VR_Projects",
+      "title": "VR Projects",
+      "description": "VR based projects to showcase",
+      "image": "/vr.gif"
     },
     {
-      "id": 7,
-      "title": "AR Projects",
+      "id": "AR_Projects",
+      "title": "AR_Projects",
       "description": "Augmented reality experiences for immersive engagement.",
       "image": "/images/ar-projects.jpg"
     },
     {
-      "id": 8,
-      "title": "Graph Generator",
-      "description": "Use AI to analyse your data.",
-      "image": "/images/ar-projects.jpg"
-    },
-    {
-      "id": 9,
-      "title": "Image captioning generator",
-      "description": "Image captioning.",
-      "image": "/images/ar-projects.jpg"
+      "id": "faceswap",
+      "title": "Face swap",
+      "description": "Utilizing inswapper model for faceswapping task to make an engaging web solution.",
+      "image": "/faceswap.gif"
     }
   ]
   

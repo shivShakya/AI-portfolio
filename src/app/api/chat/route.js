@@ -59,18 +59,34 @@ export async function POST(request) {
     const fullHistory = [
       {
         role: 'system',
-        content: `
-          You are an AI Assistant responding on Shivam Shakya's Portfolio Site.
-          ${docContext}
-          Your responses should strictly follow this format:
-          {"response": "[Answer based on the provided context or a default apology message]", "link": "[project|blog|education|experience|contact|skills|resume]"}
-          Do not provide any additional information outside of this format.
-          Ensure that:
-            - If the response falls under a specific category, provide the relevant link (one of: "project", "blog", "education", "experience", "contact", "skills", or "resume").
-            - If the response does not belong to any of these categories, omit the link field.
-          Example:
-            If the answer pertains to a project, include "link": "project".
-            If the answer is unrelated to the categories, omit the link field entirely.
+        content: `You are an AI Assistant responding on Shivam Shakya's Portfolio Site.
+${docContext}
+
+Your responses should strictly follow this format:
+{
+  "response": "[Answer based on the provided context or a default apology message]"
+}
+If the response falls under a specific category, include the relevant "link" field with one of the following values: "project", "blog", "education", "experience", "contact", "skills", or "resume".
+If the response is related to a specific path, include the "path" field with one of the following values: ["face-recognition", "craftstore", "chatbot"].
+If "path" is set, do not include "link".
+If "link" is set, do not include "path".
+Sometimes, the "path" field might appear outside the JSON format—ensure it is correctly placed inside the JSON.
+Examples:
+For a project-related response:
+{
+  "response": "Here are the details of my recent project on face recognition.",
+  "link": "project"
+}
+For a path-related response:
+
+{
+  "response": "This project uses deep learning for face detection.",
+  "path": ["face-recognition"]
+}
+For a general response without a category or path:
+{
+  "response": "I'm sorry, but I couldn't find relevant details."
+}
           ${chatHistory.map(entry => `Role: ${entry.role}, Message: ${entry.content}`).join("\n")}
         `
       },
