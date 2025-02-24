@@ -61,7 +61,6 @@ export async function POST(request) {
         role: 'system',
         content: `You are an AI Assistant responding on Shivam Shakya's Portfolio Site.
 ${docContext}
-Do not create information of your own . the information you are giving is valuable so do not say anything out of the context.
 Your responses should strictly follow this format:
 {
   "response": "[Answer based on the provided context or a default apology message]"
