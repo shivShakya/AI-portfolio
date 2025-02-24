@@ -1,23 +1,22 @@
 {
-  "title": "Fine-Tuning Stable Diffusion with Meta Segmentation",
-  "description": "While working with AI-generated images, I realized that generating precise and structured outputs often requires more than just a general diffusion model. Fine-tuning a model with domain-specific knowledge can significantly enhance its capabilities. In this project, I fine-tuned Stable Diffusion with Meta's segmentation model to improve image generation by incorporating segmentation masks. This approach allows the model to understand and generate well-structured images with clear object boundaries. Over two months, I explored diffusion models, segmentation techniques, and deep learning optimizations to build a system capable of refining image generation using segmentation guidance. The project provided hands-on experience in model fine-tuning, dataset preprocessing, training deep learning models, and deploying AI-powered image generation systems.",
+  "title": "Face Recognition System",
+  "description": "I often wondered why my university relied on biometric machines for attendance when it could be easily marked using online platforms.In this system, a machine learning model is trained with facial data to recognize individuals and mark their attendance accordingly. Inspired by the potential of machine learning and data science, I embarked on creating a biometric-like system. After dedicated efforts spanning two months, I successfully developed this attendance system.So when i was learning about machine learning and data science , i got an idea to create something like biometric system. And after the 2 months of efforts I developed this system.Throughout this project, I gained practical experience in machine learning and data science methodologies, including data collection, exploratory data analysis (EDA), feature engineering, and model deployment on the web. Leveraging my strong command of Python, I found the process incredibly interesting. Additionally, automating file creation and deletion was a significant aspect of this project, providing valuable insights and learning opportunities.",
   "features": [
-    "Fine-tuned Stable Diffusion with Meta’s segmentation model",
-    "Improved object segmentation and structured image generation",
-    "Supports multi-class segmentation masks for guided image generation",
-    "Custom dataset training for domain-specific applications"
+    "Real-time face detection and recognition",
+    "96% accuracy with machine learning model",
+    "Used Support Vector Machine for classification problem",
+    "Secure storage and processing of face data"
   ],
   "technologies": [
-    "Stable Diffusion",
-    "Meta’s segmentation model",
-    "Hugging Face Transformers & Diffusers",
-    "PyTorch",
-    "Automatic1111 Web UI"
+    "Python",
+    "OpenCV",
+    "Machine learning Algorithm SVM",
+    "haarcascade masks used for facial bounding boxex and cropping"
   ],
   "useCases": [
-    "Generating structured images with refined segmentation control",
-    "Creating domain-specific AI-generated content with guided masks",
-    "Improving AI-generated assets for gaming, design, and media"
+    "Security systems for access control",
+    "Automated attendance management"
   ],
-  "videoLink": "/finetune.mp4"
+  "videoLink": "/face-recognition.mp4"
 }
+
