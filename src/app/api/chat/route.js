@@ -45,15 +45,19 @@ export async function POST(request) {
         $vector: embedding
       },
       limit: 5,
+      projection: {
+        $vector: 1, // Include the $vector field in the results
+        document_id: 1, // Include the document_id field in the results
+        content: 1,
+      }
     });
 
     const documents = await cursor.toArray();
     docContext = `
         START CONTEXT
-       ${documents?.map(doc => doc.description).join("\n")}
+              ${documents.map(doc => doc.content).join("\n")}
         END CONTEXT
     `;
-
     const chatHistory = chatHistoryMap.get(sessionId) || [];
 
     const fullHistory = [
@@ -63,10 +67,10 @@ export async function POST(request) {
 ${docContext}
 Your responses should strictly follow this format:
 {
-  "response": "[Answer based on the provided context or a default apology message]"
+  "response": "[Answer based on the provided context or a default apology message, Summarize your answer. Do not make lengthy sentences.]"
 }
 If the response falls under a specific category, include the relevant "link" field with one of the following values: "project", "blog", "education", "experience", "contact", "skills", or "resume".
-If the response is related to a specific path, include the "path" field with one of the following values: ["face-recognition", "craftstore", "chatbot", "Department_project", "faceswap", "finetune", "VR_Projects", "zoo", "Aamchi_mess"].
+If the response is related to a specific path, include the "path" field with one of the following values: ["face-recognition", "craftstore", "chatbot", "Department_project", "faceswap", "finetune", "VR_Projects", "zoo", "Aamchi_mess","AR_Projects"].
 If "path" is set, do not include "link".
 If "link" is set, do not include "path".
 Sometimes, the "path" field might appear outside the JSON format—ensure it is correctly placed inside the JSON.

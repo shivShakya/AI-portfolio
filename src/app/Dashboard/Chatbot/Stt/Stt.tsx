@@ -111,7 +111,7 @@ const Stt: React.FC<SttProps> = ({ children }) => {
             dispatch(setPath(""));
       }
 
-
+      setIsListening(false);
          // dispatch(setTextResponse(apiResponseData.response));
         } else {
           setApiResponse(`Failed to fetch API: ${response.statusText}`);

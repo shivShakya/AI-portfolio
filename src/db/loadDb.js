@@ -10,6 +10,7 @@ import { UUID } from "@datastax/astra-db-ts";
 // Astra DB Configuration
 
 
+
 const inference = new HfInference(hfToken);
 
 
@@ -30,17 +31,16 @@ const readJSONFiles = (dir = '') => {
       if (stats.isDirectory()) {
         results = results.concat(readDirectory(filePath));
       } else if (path.extname(file) === '.json') {
-        const content = fs.readFileSync(filePath, 'utf8');
-
-        if (!content.trim()) {
-          console.warn(`Warning: ${filePath} is empty.`);
-          return;
-        }
-
         try {
-          results.push(JSON.parse(content));
-        } catch (error) {
-          console.error(`Error parsing JSON file: ${filePath}`, error.message);
+          const content = fs.readFileSync(filePath, 'utf8');
+          try {
+            const parsedContent = JSON.parse(content);
+            results.push(parsedContent);
+          } catch (jsonError) {
+            console.error(`Error parsing JSON in file ${filePath}:`, jsonError.message);
+          }
+        } catch (readError) {
+          console.error(`Error reading file ${filePath}:`, readError.message);
         }
       }
     });
@@ -50,7 +50,6 @@ const readJSONFiles = (dir = '') => {
 
   return readDirectory(directoryPath);
 };
-
 
 
 
@@ -104,6 +103,7 @@ const loadData = async () => {
         await collection.insertOne({
           document_id: UUID.v4(),
           $vector: embedding,
+          content: chunk,
         });
         console.log("Data inserted successfully");
       } catch (insertError) {
