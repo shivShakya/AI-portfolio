@@ -16,6 +16,8 @@ import Portfolio from "./Portfolio/page";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ChatbotPhone from "./Chatbot/ChatbotPhone";
 import { setDevice } from "@/redux/deviceSlice";
+import { MoveLeft, MoveLeftIcon } from "lucide-react";
+import Link from "next/link";
 
 
 
@@ -88,7 +90,7 @@ export default function Home() {
     }
 
     if (path) {
-        path = path + "-" + Date.now();
+      //  path = path + "-" + Date.now();
         setCurrentProject(path);
     }
 }, [category, path]);
@@ -122,7 +124,7 @@ export default function Home() {
       <div className="flex flex-1">
        {
         !isHovered &&  <div className="flex w-full md:w-1/4 fixed top-0 z-50 items-center justify-center py-2 bg-customColor border-b border-gray-500">
-        <h2 className="text-lg font-bold text-white">Introduction</h2>
+        <h2 className="text-lg font-bold text-white flex justify-center item-center gap-2"> <Link href="/"> <MoveLeft className="text-white cursor-pointer" /></Link> Introduction</h2>
       </div>
        }
 
@@ -171,13 +173,13 @@ export default function Home() {
 
         {showOverlay && (
           <>
-            <div className="absolute z-50 top-2 right-2 cursor-pointer text-white bg-black px-3 py-1 flex items-center justify-center rounded hover:bg-red-600"
+            <div className="absolute visible md:hidden lg:hidden z-50 top-2 right-2 cursor-pointer text-white bg-black px-3 py-1 flex items-center justify-center rounded hover:bg-red-600"
             onClick={() => setShowOverlay(false)}
             >
               ✕
               </div>
 
-            <div id="page" className="md:flex flex-1 m-0 scrollbar-hide  md:m-6 border-4 bg-white border-customColor  rounded-lg shadow-lg overflow-y-auto fixed inset-0 z-40 md:static md:z-auto ">
+            <div id="page" className="md:flex flex-1 m-0 scrollbar-hide  md:m-6 border-4 bg-white border-customColor  rounded-lg shadow-lg overflow-y-auto fixed inset-0 z-0 md:static md:z-auto ">
                 {renderPageContent()  || renderProjects()}
                 {/*   <Tabs /> */}
            </div>

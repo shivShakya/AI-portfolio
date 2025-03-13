@@ -12,7 +12,7 @@ const Test: React.FC = () => {
           href="/Metaverse"
           className="relative flex items-center px-9 py-2 border-4 border-customColor hover:text-white font-semibold rounded-3xl shadow-md hover:bg-customColor focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
-          Enter to Metaverse
+          Enter the Metaverse
         </Link>
       </div>
 
@@ -23,7 +23,7 @@ const Test: React.FC = () => {
 
         <Layout />
 
-        <div className="mt-4">
+        <div className="mt-4 bottom-5  md:absolute">
           <Link
             href="/Dashboard"
             className="relative flex items-center px-9 py-2 border-4 border-customColor hover:text-white font-semibold rounded-3xl shadow-md hover:bg-customColor focus:outline-none focus:ring-2 focus:ring-blue-300"

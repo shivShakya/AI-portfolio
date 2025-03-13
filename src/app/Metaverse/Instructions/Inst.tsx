@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight, FaArrowUp, FaArrowDown, FaMousePointer, FaTimes } from "react-icons/fa";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { Mic } from "lucide-react";
+import Link from "next/link";
 
 const Inst: React.FC = () => {
   return (
@@ -14,9 +15,9 @@ const Inst: React.FC = () => {
       className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-md"
     >
       <div className="relative p-6 w-full max-w-lg text-white bg-gray-900 bg-opacity-80 shadow-lg rounded-2xl">
-        <button  className="absolute top-3 right-3 text-white text-xl">
+        <Link href="/"  className="absolute top-3 right-3 text-white text-xl">
           <FaTimes />
-        </button>
+        </Link>
         <div className="text-red-500 text-2xl font-bold mb-4 text-center">Work In Development</div>
         <div className="text-white text-xl font-bold mb-4 text-center"> It is a simulation home where characters make their own decisions. People can join in real-time, have conversations with them, and influence the built-in character&apos;s daily activities by giving commands.</div>
         <h2 className="text-2xl font-bold mb-4 text-center">Game Controls</h2>

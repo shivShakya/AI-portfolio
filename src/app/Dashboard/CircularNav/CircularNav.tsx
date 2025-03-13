@@ -83,7 +83,7 @@ export default function CircularNav({ onSelectPage }: CircularNavProps) {
           </div>
         ))}
       </div>
-      <div className="absolute w-5 h-5 rounded-full border-4 bg-transparent flex justify-center items-center z-20"></div>
+      <div className="absolute w-5 h-5 rounded-full border-4 bg-transparent flex justify-center items-center z-0"></div>
     </div>
   );
 }

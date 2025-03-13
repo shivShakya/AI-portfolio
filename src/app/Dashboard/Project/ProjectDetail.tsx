@@ -40,7 +40,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
       <div className="text-center mb-12">
        <div className='flex justify-center items-center'>
-       <h1 className="text-4xl font-bold text-customBlue mb-4">{projectData.title}</h1>
+       <h1 className="text-xl md:text-4xl text-left md:text-center font-bold text-customBlue mb-4">{projectData.title}</h1>
           <Link className="text-xl font-bold text-customDark m-2" href={projectData.link}  target="_blank" rel="noopener noreferrer"><LinkIcon className='text-customBlue' /></Link>
           <Link className="text-xl font-bold text-customDark m-2" href={projectData.github_link}><Icon iconNode={burger} className='text-customBlue' /></Link>
        </div>
