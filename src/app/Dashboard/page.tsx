@@ -16,7 +16,7 @@ import Portfolio from "./Portfolio/page";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import ChatbotPhone from "./Chatbot/ChatbotPhone";
 import { setDevice } from "@/redux/deviceSlice";
-import { MoveLeft, MoveLeftIcon } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
 
@@ -27,7 +27,7 @@ export default function Home() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const category = useSelector((state: RootState) => state.category.value);
-  let path = useSelector((state: RootState) => state.path.value);
+  const path = useSelector((state: RootState) => state.path.value);
   const [showMessage, setShowMessage] = useState(false);
   const [presentationMode] = useState(false);
   const dispatch = useDispatch();
