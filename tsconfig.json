@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -12,7 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -20,9 +24,27 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/types/app/project/page.tsx", "src/app/Meta/page.jsx", "src/app/api/chat/route.js", "src/app/Dashboard/blog/[slug]/page.jsx", "src/app/Dashboard/blog/page.jsx", "src/app/Dashboard/page.jsx", "src/app/Dashboard/Chatbot/Stt/Stt.jsx", "src/app/api/presentation/route.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/types/app/project/page.tsx",
+    "src/app/Meta/page.jsx",
+    "src/app/api/chat/route.js",
+    "src/app/Dashboard/blog/[slug]/page.jsx",
+    "src/app/Dashboard/blog/page.jsx",
+    "src/app/Dashboard/page.jsx",
+    "src/app/Dashboard/Chatbot/Stt/Stt.jsx",
+    "src/app/api/presentation/route.js",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

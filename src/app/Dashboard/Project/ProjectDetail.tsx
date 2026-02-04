@@ -19,8 +19,8 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (slug) {
-     // const cleanSlug = slug.split("-").slice(0, -1).join("-");
-     const cleanSlug = slug;
+     const cleanSlug = slug.split("-").slice(0, -1).join("-");
+    // const cleanSlug = slug;
       console.log({cleanSlug});
       fetch(`/projects/${cleanSlug}.json`)
         .then((res) => res.json())
