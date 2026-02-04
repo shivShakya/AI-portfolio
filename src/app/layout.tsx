@@ -1,9 +1,6 @@
-"use client"
-import { Geist, Geist_Mono } from "next/font/google";
+import React, { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { store } from '../redux/store'
-import { Provider } from 'react-redux'
-import 'regenerator-runtime/runtime'
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,17 +14,15 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-          <Provider store={store}>
-              {children}
-        </Provider>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
