@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "@/redux/categorySlice";
 import { setTextResponse } from "@/redux/responseSlice";
-import { Loader2, SendHorizontal, Sparkles, User, Cpu } from "lucide-react";
+import { Loader2, SendHorizontal, Sparkles, Cpu } from "lucide-react";
 import type { RootState } from "@/redux/store";
 import { setPath } from "@/redux/pathSlice";
 

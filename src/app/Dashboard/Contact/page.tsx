@@ -1,8 +1,8 @@
 "use client";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+//import { collection, addDoc } from "firebase/firestore";
+//import { db } from "../firebase";
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
 
     if (form.current) {
       try {
-        const formData = new FormData(form.current);
+       // const formData = new FormData(form.current);
         await emailjs.sendForm("service_wjxpy8h", "template_d09n03b", form.current, {
           publicKey: "JrrqjpMZo5cxo5D27",
         });
