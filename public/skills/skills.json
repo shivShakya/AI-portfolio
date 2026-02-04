@@ -2,14 +2,25 @@
     {
       "title": "Full Stack Development",
       "skills": [
-        "React Js",
+        "Springboot",
+        "ASP.NET",
+        "Fast API",
+        "Flask",
         "Next Js",
         "Node js",
-        "HTML/CSS",
-        "Tailwind css",
-        "GSAP",
-        "Fast API",
-        "Flask"
+        "React Js",
+        "Tailwind"
+      ]
+    },
+     {
+      "title": "Databases",
+      "skills": [
+        "My SQL",
+        "Mongodb",
+        "Redis",
+        "Firebase",
+        "ER Diagram",
+        "Schema Design"
       ]
     },
     {
@@ -24,28 +35,16 @@
       ]
     },
     {
-      "title": "3D Development",
-      "skills": [
-        "Three.js",
-        "Babylon.js",
-        "Zapper",
-        "Mediapipe",
-        "8th wall",
-        "snap lenses",
-        "Blender"
-      ]
-    },
-    {
       "title": "Other Skills",
       "skills": [
-        "Firebase (Firestore)",
+        "Object Oriented Programming",
+        "Microservices",
+        "Kafka & Redis",
         "Redux (State Management)",
-        "Structured code",
-        "API Development and Integration",
         "Responsive Design and Mobile Optimization",
         "Video Processing (FFmpeg)",
         "Mathematics",
-        "Machine Learning (CNN, LSTM for Image Captioning)"
+        "Machine Learning"
       ]
     }
   ]

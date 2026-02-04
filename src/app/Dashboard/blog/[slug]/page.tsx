@@ -28,7 +28,7 @@ export default function BlogPost() {
   const [blog, setBlog] = useState<Blog | null>(null);
 
   useEffect(() => {
-    fetch("/post1.json")
+    fetch("/blogs/blogs.json")
       .then((response) => response.json())
       .then((data) => setBlog(data.blog))
       .catch((error) => console.error("Error loading blog data:", error));

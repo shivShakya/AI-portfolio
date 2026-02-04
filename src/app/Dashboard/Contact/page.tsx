@@ -6,105 +6,92 @@ import { db } from "../firebase";
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (form.current) {
-      const formData = new FormData(form.current);
-      const name = formData.get("user_name") as string;
-      const email = formData.get("user_email") as string;
-      const message = formData.get("message") as string;
-
       try {
-        // Send email using emailjs
-        await emailjs.sendForm(
-          "service_3kpt7pq",
-          "template_nfjsijb",
-          form.current,
-          {
-            publicKey: "FgE_X1StGZ8R9N8g9",
-          }
-        );
+        const formData = new FormData(form.current);
+        await emailjs.sendForm("service_wjxpy8h", "template_d09n03b", form.current, {
+          publicKey: "JrrqjpMZo5cxo5D27",
+        });
 
+        /*
         await addDoc(collection(db, "contacts"), {
-          name: name,
-          email: email,
-          message: message,
+          name: formData.get("user_name"),
+          email: formData.get("user_email"),
+          message: formData.get("message"),
           timestamp: new Date(),
         });
 
+        */
         setSuccess(true);
-        console.log("SUCCESS!");
-
-        // Reset the form fields
         form.current.reset();
-
-        // Optionally, clear the success message after 5 seconds
-        setTimeout(() => {
-          setSuccess(false);
-        }, 5000);
+        setTimeout(() => setSuccess(false), 5000);
       } catch (error) {
-        console.error("FAILED...", error);
+        console.error("Error:", error);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full bg-gradient-to-br from-[#211516] to-[#0c1f33] p-6 space-y-8">
-      <div className="bg-[rgb(250,250,250)] p-10 rounded-sm md:rounded-3xl shadow-2xl w-full max-w-lg border border-gray-300 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#1E8787] opacity-5 rounded-3xl"></div>
+    <div className="w-full max-w-4xl mx-auto  p-10 md:p-8 bg-white min-h-[80vh] flex flex-col justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        
+        {/* Left Side: Context */}
+        <div className="flex flex-col justify-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tighter mb-3 md:mb-4">
+            Let’s Talk.
+          </h1>
+          <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-xs md:max-w-full">
+            Open to new roles and impact-driven collaborations.
+          </p>
+        </div>
 
-        <h1 className="text-4xl font-bold text-[#0c1f33] mb-8 text-center relative z-10">
-          Get in Touch
-        </h1>
-        <form ref={form} onSubmit={sendEmail} className="space-y-6 relative z-10">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-[#333]">
-              Your Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="user_name"
-              className="mt-2 block w-full p-3 border border-gray-300 rounded-lg shadow-md bg-white focus:ring-[#1E8787] focus:border-[#1E8787]"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#333]">
-              Your Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="user_email"
-              className="mt-2 block w-full p-3 border border-gray-300 rounded-lg shadow-md bg-white focus:ring-[#1E8787] focus:border-[#1E8787]"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#333]">
-              Your Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              className="mt-2 block w-full p-3 border border-gray-300 rounded-lg shadow-md bg-white focus:ring-[#1E8787] focus:border-[#1E8787]"
-              placeholder="Type your message here..."
-            ></textarea>
-          </div>
+        {/* Right Side: Form */}
+        <form ref={form} onSubmit={sendEmail} className="space-y-4 md:space-y-5">
+          <input
+            required
+            type="text"
+            name="user_name"
+            placeholder="Name"
+            className="w-full px-0 py-2 md:py-3 bg-transparent border-b-2 border-gray-100 outline-none focus:border-black transition-colors placeholder:text-gray-300 text-sm md:text-base"
+          />
+          
+          <input
+            required
+            type="email"
+            name="user_email"
+            placeholder="Email"
+            className="w-full px-0 py-2 md:py-3 bg-transparent border-b-2 border-gray-100 outline-none focus:border-black transition-colors placeholder:text-gray-300 text-sm md:text-base"
+          />
+
+          <textarea
+            required
+            rows={3}
+            name="message"
+            placeholder="Your Message"
+            className="w-full px-0 py-2 md:py-3 bg-transparent border-b-2 border-gray-100 outline-none focus:border-black transition-colors resize-none placeholder:text-gray-300 text-sm md:text-base"
+          ></textarea>
+
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-[#1E8787] to-[#0c1f33] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105"
+            disabled={isSubmitting}
+            className="w-full md:w-auto mt-4 px-8 py-3 bg-black text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-gray-800 disabled:bg-gray-400 transition-all"
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
+
           {success && (
-            <div className="mt-4 text-center text-green-600 font-semibold">
-              Your message has been sent successfully!
-            </div>
+            <p className="text-xs md:text-sm font-medium text-green-600 animate-pulse mt-2">
+              ✓ Message sent.
+            </p>
           )}
         </form>
       </div>

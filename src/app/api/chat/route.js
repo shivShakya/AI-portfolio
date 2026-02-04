@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
 import { DataAPIClient } from '@datastax/astra-db-ts';
-import { HfInference } from "@huggingface/inference";
+import { InferenceClient } from '@huggingface/inference';
 import { Groq } from 'groq-sdk';
 
 // Astra DB Configuration
-const token = process.env.ASTRA_DB_TOKEN;
-const ENDPOINT = process.env.ASTRA_DB_ENDPOINT;
-const namespace = process.env.ASTRA_DB_NAMESPACE;
-const collectionName = process.env.ASTRA_DB_COLLECTION;
-const hfToken = process.env.HF_TOKEN;
-const groqApiToken = process.env.GROQ_API_TOKEN;
-
+const token = process.env.ASTRA_DB_TOKEN; 
+const ENDPOINT = process.env.ASTRA_DB_ENDPOINT; 
+const namespace = process.env.ASTRA_DB_NAMESPACE; 
+const collectionName = process.env.ASTRA_DB_COLLECTION; 
+const hfToken = process.env.HF_TOKEN;  
+const groqApiToken = process.env.GROQ_API_TOKEN;  
+ 
 // Hugging Face API Key
-const inference = new HfInference(hfToken);
+const inference = new InferenceClient(hfToken);
 const client = new DataAPIClient(token);
 const db = client.db(ENDPOINT, { namespace });
 const chatGroq = new Groq({
@@ -65,12 +65,16 @@ export async function POST(request) {
         role: 'system',
         content: `You are an AI Assistant responding on Shivam Shakya's Portfolio Site.
 ${docContext}
+
+
+IMPORTANT INSTRUCTION:
+
 Your responses should strictly follow this format:
 {
   "response": "[Answer based on the provided context or a default apology message, Summarize your answer. Do not make lengthy sentences.]"
 }
 If the response falls under a specific category, include the relevant "link" field with one of the following values: "project", "blog", "education", "experience", "contact", "skills", or "resume".
-If the response is related to a specific path, include the "path" field with one of the following values: ["face-recognition", "craftstore", "chatbot", "Department_project", "faceswap", "finetune", "VR_Projects", "zoo", "Aamchi_mess","AR_Projects"].
+If the response is related to a specific path, include the "path" field with one of the following values: ["Ripple_AI","face-recognition", "craftstore", "chatbot", "Department_project", "faceswap", "finetune", "VR_Projects", "zoo", "Aamchi_mess",].
 If "path" is set, do not include "link".
 If "link" is set, do not include "path".
 Sometimes, the "path" field might appear outside the JSON format—ensure it is correctly placed inside the JSON.
@@ -101,7 +105,7 @@ For a general response without a category or path:
 
     const completion = await chatGroq.chat.completions.create({
       messages: fullHistory,
-      model: "llama3-70b-8192"
+      model: "openai/gpt-oss-120b"
     });
 
     const responseContent = completion.choices[0]?.message?.content;

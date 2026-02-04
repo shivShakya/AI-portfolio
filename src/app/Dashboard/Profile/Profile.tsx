@@ -38,7 +38,7 @@ export default function Profile() {
           Full Stack Developer
         </h3>
         <p className="text-gray-600 text-center md:text-start">
-          Hi, I am a web and mobile app developer, metaverse and machine
+          Hi, I am a software developer, metaverse and machine
           learning enthusiast. I love coding, theatre, and traveling. Here is
           my portfolio to showcase my skills.
         </p>

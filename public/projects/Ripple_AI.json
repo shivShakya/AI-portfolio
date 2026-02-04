@@ -1,0 +1,28 @@
+{
+  "title": "Ripple AI - Social Welfare Microservices Platform",
+  "link": "https://github.com/shivShakya/RippleAI-CDAC",
+  "github_link": "https://github.com/shivShakya/RippleAI-CDAC",
+  "description": "I developed Ripple AI as a social media platform dedicated to social welfare. The project focuses on handling real-time social engagement and impact tracking at scale. By using a microservices architecture with Eureka and an API Gateway, I ensured the platform could scale modularly while providing advanced features like post analytics and a reward system for users contributing to social causes.",
+  "features": [
+    "Microservices architecture with Eureka service discovery and API Gateway",
+    "Real-time feed updates via WebSockets and Kafka event workflows",
+    "Redis caching for low-latency data retrieval",
+    "Lightweight AI-powered post analytics and notification service",
+    "Subscription billing and a ranking-rewards system"
+  ],
+  "technologies": [
+    "Spring Boot",
+    "Python",
+    "React",
+    "Kafka",
+    "Redis",
+    "Docker",
+    "AWS EC2"
+  ],
+  "useCases": [
+    "Social welfare networking and community engagement",
+    "Real-time social impact tracking and rewards",
+    "Scalable architecture for high-traffic social applications"
+  ],
+  "videoLink": "/ripple_ai.mp4"
+}

@@ -1,7 +1,7 @@
 import { DataAPIClient } from "@datastax/astra-db-ts";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import 'dotenv/config';
-import { HfInference } from "@huggingface/inference";
+import { InferenceClient } from '@huggingface/inference';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -9,9 +9,19 @@ import { UUID } from "@datastax/astra-db-ts";
 
 // Astra DB Configuration
 
+process.env.HF_ENDPOINT = "https://router.huggingface.co";
 
 
-const inference = new HfInference(hfToken);
+const hfToken=process.env.HF_TOKEN;
+const token=process.env.ASTRA_DB_TOKEN;
+const ENDPOINT=process.env.ASTRA_DB_ENDPOINT;
+const namespace=process.env.ASTRA_DB_NAMESPACE;
+const collectionName=process.env.ASTRA_DB_COLLECTION;
+
+
+
+const inference = new InferenceClient(hfToken);
+
 
 
 const __filename = fileURLToPath(import.meta.url);

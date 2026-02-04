@@ -42,7 +42,7 @@ export default function Experience() {
             key={index}
             className="bg-white border border-gray-500 p-6 mb-6 shadow-md rounded-md"
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center" onClick={() => toggleExpand(index)}>
               <div>
                 <h2 className="text-xl font-semibold text-gray-800">{experience.title}</h2>
                 <p className="text-sm text-gray-600 mb-2">
@@ -50,7 +50,6 @@ export default function Experience() {
                 </p>
               </div>
               <button
-                onClick={() => toggleExpand(index)}
                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
                 {expandedIndexes[index] ? <FaChevronUp size={18} /> : <FaChevronDown size={18} />}

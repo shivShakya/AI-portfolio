@@ -1,7 +1,7 @@
 {
   "title": "Face Recognition System",
   "link" : "https://facerecogize.vercel.app/",
-  "github_link" : "https://github.com/shivShakya/FaceRecognitionSystem",
+  "github_link" : "https://github.com/shivShakya/FaceRecognitionAttendanceSystem",
   "description": "I often wondered why my university relied on biometric machines for attendance when it could be easily marked using online platforms.In this system, a machine learning model is trained with facial data to recognize individuals and mark their attendance accordingly. Inspired by the potential of machine learning and data science, I embarked on creating a biometric-like system. After dedicated efforts spanning two months, I successfully developed this attendance system.So when i was learning about machine learning and data science , i got an idea to create something like biometric system. And after the 2 months of efforts I developed this system.Throughout this project, I gained practical experience in machine learning and data science methodologies, including data collection, exploratory data analysis (EDA), feature engineering, and model deployment on the web. Leveraging my strong command of Python, I found the process incredibly interesting. Additionally, automating file creation and deletion was a significant aspect of this project, providing valuable insights and learning opportunities.",
   "features": [
     "Real-time face detection and recognition",

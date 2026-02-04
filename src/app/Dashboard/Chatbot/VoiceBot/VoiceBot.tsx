@@ -94,22 +94,24 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       antialias: true,
-      alpha: true,
+      alpha: true, // Keep this true
     });
+
     renderer.setSize(
       canvasRef.current.clientWidth,
       canvasRef.current.clientHeight
     );
-    renderer.setClearColor("#1E8787", 1);
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 4);
+    renderer.setClearColor(0x000000, 0);
+
+    const ambientLight = new THREE.AmbientLight(0x444040, 4);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 6);
     directionalLight.position.set(0.069, 1.748, 1.586);
     scene.add(directionalLight);
 
-    const hemisphereLight = new THREE.HemisphereLight("#00AAFF", "#FFAA00", 4);
+    const hemisphereLight = new THREE.HemisphereLight("#0000FF", "#FFAA00", 4);
     hemisphereLight.position.set(0, 1.538, 0);
     scene.add(hemisphereLight);
 
@@ -221,19 +223,21 @@ const VoiceBot: React.FC<ThreeJSModelViewerProps> = ({ modelUrl }) => {
     };
   }, [preloadedModel, voiceContent, audio]);
 
-  return (
-    <>
-     {
-        device !== 'mobile' ? <canvas
-        ref={canvasRef}
-        className="w-full h-auto max-w-[30vh] max-h-[30vh] mt-5 rounded-full border-4 border-customColor hover:border-customDark aspect-square"
-        /> : <canvas
-        ref={canvasRef}
-        className="w-full h-auto max-w-[25vh] max-h-[25vh] mt-1 rounded-full border-4 border-customColor hover:border-customDark aspect-square"
-        />
-    }
-    </>  
-  );
+ return (
+  <>
+    <canvas
+      ref={canvasRef}
+      className={`
+        w-full h-auto aspect-square rounded-full border-2 border-white 
+        transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.1)]
+        ${device !== 'mobile' ? 'max-w-[30vh] max-h-[30vh] mt-5' : 'max-w-[25vh] max-h-[25vh] mt-1'}
+        /* This gradient creates the 3D depth feel */
+        bg-[radial-gradient(circle_at_50%_50%,_rgba(240,244,255,1)_0%,_rgba(210,218,240,1)_100%)]
+        hover:shadow-[0_15px_40px_rgba(99,102,241,0.2)]
+      `}
+    />
+  </>
+);
 };
 
 export default VoiceBot;

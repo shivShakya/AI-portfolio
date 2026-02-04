@@ -1,4 +1,22 @@
 [
+   {
+      "id": "Ripple_AI",
+      "title": "Ripple AI",
+      "description": "A robust system for facial detection and recognition.",
+      "image": "/ripple.gif"
+    },
+    {
+      "id": "Department_project",
+      "title": "A Department Project",
+      "description": "An Interactive Zoo Metaverse",
+      "image": "/department.gif"
+    },
+    {
+      "id": "Aamchi_mess",
+      "title": "A Mess Management System",
+      "description": "An Interactive Zoo Metaverse",
+      "image": "/aamchi_mess.gif"
+    },
     {
       "id": "face-recognition",
       "title": "Face Recognition System",
@@ -18,40 +36,16 @@
       "image": "/zoo.gif"
     },
     {
-      "id": "Aamchi_mess",
-      "title": "A Mess Management System",
-      "description": "An Interactive Zoo Metaverse",
-      "image": "/aamchi_mess.gif"
-    },
-    {
-      "id": "Department_project",
-      "title": "A Department Project",
-      "description": "An Interactive Zoo Metaverse",
-      "image": "/department.gif"
-    },
-    {
-      "id": "finetune",
-      "title": "Fine-tuning Stable Diffusion Model",
-      "description": "A custom-trained diffusion model for image generation.",
-      "image": "/finetune.webp"
-    },
-    {
-      "id": "chatbot",
-      "title": "3D Chatbot",
-      "description": "An interactive chatbot powered by 3D elements.",
-      "image": "/3dchatbot.gif"
-    },
-    {
       "id": "VR_Projects",
       "title": "VR Projects",
       "description": "VR based projects to showcase",
       "image": "/vr.gif"
     },
     {
-      "id": "AR_Projects",
-      "title": "AR_Projects",
-      "description": "Augmented reality experiences for immersive engagement.",
-      "image": "/images/ar-projects.jpg"
+      "id": "chatbot",
+      "title": "3D Chatbot",
+      "description": "An interactive chatbot powered by 3D elements.",
+      "image": "/3dchatbot.gif"
     },
     {
       "id": "faceswap",

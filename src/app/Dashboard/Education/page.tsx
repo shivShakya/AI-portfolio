@@ -32,7 +32,7 @@ export default function Education() {
   return (
     <div className="flex flex-col justify-start items-center w-full mt-6 mb-6 md:mt-0 md:mb-0 p-8 bg-white h-full">
       <h1 className="text-3xl font-bold text-customDark mb-8">My Education</h1>
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-5xl" >
         {blocks.map((education, index) => (
           <Tilt
             glareEnable={false}
@@ -42,11 +42,11 @@ export default function Education() {
             glareColor={"black"}
             key={index}
             className="bg-white border border-gray-500 p-6 mb-6 shadow-md rounded-md"
+            
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center" onClick={() => toggleExpand(index)}>
               <h2 className="text-xl font-semibold text-gray-800">{education.title}</h2>
               <button
-                onClick={() => toggleExpand(index)}
                 className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
               >
                 {expandedIndexes[index] ? <FaChevronUp size={18} /> : <FaChevronDown size={18} />}
