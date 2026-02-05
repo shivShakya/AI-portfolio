@@ -1,7 +1,7 @@
 {
     "title": "Meta Zoo - An Immersive Virtual Zoo Experience",
-    "link" : "",
-    "github_link" : "https://github.com/shivShakya/DepartmentProjectMERN",
+    "link" : "https://metazoo-shivshakya.vercel.app/",
+    "github_link" : "https://github.com/shivShakya/metazoo",
     "description": "Meta Zoo is a Three.js-based multiplayer metaverse designed to provide an interactive and educational zoo experience for children. The platform leverages WebSockets for real-time multiplayer interactions, allowing users to explore a vibrant virtual zoo, interact with animals, and even take a ride on a toy train. With features like positional audio and an interactive drawing canvas, Meta Zoo creates an engaging and dynamic environment for kids to learn and play.",
     "features": [
       "Real-time multiplayer experience using WebSockets",
