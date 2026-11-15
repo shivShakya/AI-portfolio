@@ -7,6 +7,7 @@ import inputSlice from './inputTextSlice';
 import outputSlice from './outputTextSlice';
 import pathSlice from './pathSlice';
 import deviceSlice from './deviceSlice';
+import chatSlice from './chatSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,7 +17,8 @@ export const store = configureStore({
     input: inputSlice,
     output: outputSlice,
     path: pathSlice,
-    device: deviceSlice
+    device: deviceSlice,
+    chat: chatSlice,
   },
 })
 

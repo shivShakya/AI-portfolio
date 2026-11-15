@@ -3,10 +3,93 @@
 @tailwind utilities;
 
 
+:root {
+  --n-50: 248 250 252;
+  --n-100: 241 245 249;
+  --n-200: 226 232 240;
+  --n-300: 203 213 225;
+  --n-400: 148 163 184;
+  --n-500: 100 116 139;
+  --n-600: 71 85 105;
+  --n-700: 51 65 85;
+  --n-800: 30 41 59;
+  --n-900: 15 23 42;
+  --n-950: 2 6 23;
+  --t-50: 240 250 249;
+  --t-100: 210 238 235;
+  --t-200: 165 220 213;
+  --t-300: 110 194 184;
+  --t-400: 58 166 154;
+  --t-500: 30 140 130;
+  --t-600: 22 118 110;
+  --t-700: 20 96 90;
+  --t-800: 19 78 74;
+  --t-900: 18 62 59;
+  --t-950: 8 40 39;
+  --white: 255 255 255;
+  --black: 15 23 42;
+  --midnight: 244 246 249;
+  --surface: 255 255 255;
+  --ink: 15 23 42;
+  --muted: 100 116 139;
+  --accent: 22 118 110;
+  --frame: 203 213 225;
+  color-scheme: light;
+}
+
+html.dark {
+  --n-50: 17 24 39;
+  --n-100: 24 33 51;
+  --n-200: 30 41 61;
+  --n-300: 45 57 82;
+  --n-400: 100 112 135;
+  --n-500: 148 158 178;
+  --n-600: 168 177 194;
+  --n-700: 192 199 212;
+  --n-800: 214 219 228;
+  --n-900: 226 230 237;
+  --n-950: 240 242 246;
+  --t-50: 18 38 40;
+  --t-100: 20 50 51;
+  --t-200: 22 72 70;
+  --t-300: 28 96 92;
+  --t-400: 90 170 160;
+  --t-500: 72 156 147;
+  --t-600: 60 138 130;
+  --t-700: 48 112 106;
+  --t-800: 150 205 198;
+  --t-900: 200 230 226;
+  --t-950: 235 246 245;
+  --white: 21 28 43;
+  --black: 226 230 237;
+  --midnight: 14 19 31;
+  --surface: 21 28 43;
+  --ink: 226 230 237;
+  --muted: 148 158 178;
+  --accent: 72 156 147;
+  --frame: 45 57 82;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: rgb(var(--midnight));
+  color: rgb(var(--ink));
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 body {
   font-family: var(--font-grandstander), Arial, Helvetica, sans-serif;
 }
 
 .risque-regular {
   font-family: var(--font-risque), serif;
+}
+
+/* Horizontal chip rows that can scroll without showing a scrollbar. */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

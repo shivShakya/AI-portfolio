@@ -30,7 +30,7 @@ const Presentation = () => {
   return (
       <button 
         onClick={fetchPresentation} 
-        className="bg-[#F1F1F1] rounded-full px-2 py-1 text-center text-black font-medium text-sm shadow-sm hover:bg-gray-300 cursor-pointer"
+        className="bg-gray-100 rounded-full px-2 py-1 text-center text-black font-medium text-sm shadow-sm hover:bg-gray-300 cursor-pointer"
         disabled={loading}
       >
          Presentation

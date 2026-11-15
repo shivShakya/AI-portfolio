@@ -8,7 +8,7 @@ export async function POST(request) {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
-        "Authorization": `Bearer ${process.env.UNREAL_VOICE}`,
+        "Authorization": `Bearer ${process.env.UNREAL_API_KEY}`,
       },
       body: JSON.stringify({
         Text: text, 

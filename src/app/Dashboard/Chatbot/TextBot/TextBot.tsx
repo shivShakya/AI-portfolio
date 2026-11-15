@@ -1,144 +1,172 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategory } from "@/redux/categorySlice";
-import { setTextResponse } from "@/redux/responseSlice";
-import { Loader2, SendHorizontal, Sparkles, Cpu } from "lucide-react";
-import type { RootState } from "@/redux/store";
-import { setPath } from "@/redux/pathSlice";
+import { ArrowUpRight, SendHorizontal } from "lucide-react";
+import { store, type RootState } from "@/redux/store";
+import { greet, setChatExpanded } from "@/redux/chatSlice";
+import Stt, { micSupported, type MicStatus } from "../Stt/Stt";
+import { askAI, playGreeting, GREETING } from "../chatClient";
 
-function TextBot() {
-  const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [voiceOutput, setVoiceOutput] = useState("");
-  const [sessionId] = useState<string>(() =>
-    typeof crypto?.randomUUID === "function"
-      ? crypto.randomUUID()
-      : Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15)
-  );
+const SUGGESTIONS = [
+  "What's your work experience?",
+  "Show me your projects",
+  "What are your top skills?",
+  "How can I contact you?",
+];
 
+function TextBot({ compact = false }: { compact?: boolean }) {
   const dispatch = useDispatch();
-  const textResponse = useSelector((state: RootState) => state.response.value);
-  const inputText = useSelector((state: RootState) => state.input.value);
-  const outputText = useSelector((state: RootState) => state.output.value);
-  const device = useSelector((state: RootState) => state.device.value);
+  const { messages, phase } = useSelector((s: RootState) => s.chat);
+  const expanded = useSelector((s: RootState) => s.chat.expanded);
+  const [input, setInput] = useState("");
+  const [mic, setMic] = useState<{ status: MicStatus; message?: string }>({ status: "off" });
+  const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Welcome once per session: show it, and say it if the mic came on.
+  // Reads the live store (not the render value) so React's dev double-run can't greet twice.
   useEffect(() => {
-    dispatch(setTextResponse(""));
-    setVoiceOutput((prevText) => prevText + " " + outputText);
-  }, [outputText]);
+    if (store.getState().chat.greeted) return;
+    dispatch(greet(GREETING.text)); // the store itself refuses a second greeting
+    playGreeting(); // saved audio: plays right away, no API call
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  // Keep the newest message in view.
   useEffect(() => {
-    dispatch(setTextResponse(""));
-    setVoiceOutput("User:" + " " + inputText + "\n" + "AI:");
-  }, [inputText]);
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+  }, [messages.length, phase]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-    setIsLoading(true);
-    setError("");
-
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: input, sessionId }),
-      });
-      if (!res.ok) throw new Error("Failed to fetch response");
-      const data = await res.json();
-      const response = JSON.parse(data.response);
-      
-      if (response && response.link) dispatch(setCategory(response.link));
-      if (response?.path) {
-        dispatch(setPath(response.path.length > 0 ? response.path[0] : ""));
-      } else {
-        dispatch(setPath(""));
-      }
-      dispatch(setTextResponse(response.response));
-      setInput("");
-    } catch (err) {
-      setError("I'm having trouble connecting. Try again?");
-      console.error(err);
-    } finally {
-      setIsLoading(false);
-    }
+  const send = (text: string) => {
+    const q = text.trim();
+    if (!q || phase === "thinking") return;
+    setInput("");
+    askAI(q);
   };
 
+  const hasAsked = messages.some((m) => m.role === "user");
+  const micOn = mic.status !== "off" && mic.status !== "error";
+
+  // One status line for voice mode.
+  const statusText =
+    mic.status === "error"
+      ? mic.message
+      : !micOn
+      ? null
+      : mic.status === "speaking"
+      ? "Speaking… I'll listen again when I'm done"
+      : phase === "thinking"
+      ? "Thinking…"
+      : phase === "voicing"
+      ? "Getting my voice ready…"
+      : mic.status === "hearing" && mic.message
+      ? `“${mic.message}”`
+      : "Listening… just start talking";
+
   return (
-    <div className="flex flex-col h-full w-full gap-5 bg-transparent p-1">
-      {/* CHAT DISPLAY AREA - Crisp Light Aesthetic */}
-      <div 
-        className={`relative border border-slate-200/60 rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl transition-all duration-500 ${
-          device !== 'mobile' ? 'h-64' : 'h-40'
-        } shadow-[0_15px_40px_-15px_rgba(0,0,0,0.08)]`}
+    <div className={`flex flex-col h-full w-full ${compact ? "gap-2" : "gap-3"}`}>
+      {/* Conversation */}
+      <div
+        ref={scrollRef}
+        className={`flex-1 min-h-0 overflow-y-auto rounded-xl bg-gray-50 border border-gray-200 custom-scrollbar ${compact ? "p-2" : "p-3 sm:p-4"}`}
+        aria-live="polite"
       >
-        <div className="h-full overflow-y-auto p-5 custom-scrollbar">
-          {isLoading ? (
-            <div className="flex flex-col justify-center items-center h-full gap-4">
-              <div className="relative flex items-center justify-center">
-                <div className="absolute w-12 h-12 bg-indigo-100 rounded-full animate-ping opacity-20" />
-                <Loader2 className="animate-spin text-indigo-500 w-8 h-8" />
+        <div className="flex flex-col gap-3">
+          {messages.map((m) =>
+            m.role === "user" ? (
+              <div key={m.id} className="self-end max-w-[85%] rounded-2xl rounded-br-md bg-accent text-white px-3.5 py-2 text-sm leading-relaxed animate-[msgIn_250ms_ease-out]">
+                {m.text}
               </div>
-              <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Synthesizing...</p>
+            ) : m.role === "event" ? (
+              <div key={m.id} className="self-center flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 text-accent pl-3 pr-1.5 py-1 text-xs font-medium animate-[msgIn_250ms_ease-out]">
+                <ArrowUpRight size={14} />
+                <span>{m.text}</span>
+                {expanded ? (
+                  <button
+                    onClick={() => dispatch(setChatExpanded(false))} // back to the sheet, page visible
+                    className="ml-1 rounded-full bg-accent text-white px-2.5 py-0.5 hover:opacity-90"
+                  >
+                    View
+                  </button>
+                ) : (
+                  <span className="pr-1.5" />
+                )}
+              </div>
+            ) : m.role === "error" ? (
+              <div key={m.id} className="self-start max-w-[90%] rounded-2xl rounded-bl-md px-3.5 py-2 text-sm bg-red-50 text-red-700 border border-red-200 dark:bg-red-950/40 dark:text-red-300 dark:border-red-900">
+                {m.text}
+              </div>
+            ) : (
+              <div key={m.id} className="self-start max-w-[90%] rounded-2xl rounded-bl-md bg-surface border border-gray-200 px-3.5 py-2 text-sm leading-relaxed text-gray-800 whitespace-pre-wrap animate-[msgIn_250ms_ease-out]">
+                {m.text}
+              </div>
+            )
+          )}
+
+          {phase === "thinking" && (
+            <div className="self-start flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-surface border border-gray-200 px-4 py-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.3s]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce [animation-delay:-0.15s]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-bounce" />
             </div>
-          ) : error ? (
-            <div className="flex items-center gap-3 p-4 bg-red-50 rounded-2xl text-red-600 text-sm font-medium border border-red-100">
-              <span className="text-lg">✕</span> {error}
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {(textResponse || voiceOutput) ? (
-                <div className="flex gap-3 items-start animate-in fade-in slide-in-from-bottom-2 duration-500">
-                  <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-200">
-                    <Cpu size={14} className="text-white" />
-                  </div>
-                  <p className="text-slate-800 text-sm leading-relaxed font-medium whitespace-pre-wrap py-1">
-                    {textResponse || voiceOutput}
-                  </p>
-                </div>
-              ) : (
-                <div className="flex flex-col items-center justify-center h-full pt-8 text-center">
-                  <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-3">
-                    <Sparkles className="text-indigo-400" size={20} />
-                  </div>
-                  <p className="text-slate-400 text-sm font-medium">Ready for your instructions.</p>
-                </div>
-              )}
+          )}
+
+          {!hasAsked && phase === "idle" && (
+            <div className="w-full flex flex-col items-center gap-2 pt-1">
+              {SUGGESTIONS.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => send(s)}
+                  className="w-full max-w-[16rem] text-sm px-4 py-2 rounded-full border border-gray-300 bg-surface text-gray-700 hover:border-accent hover:text-accent transition-colors"
+                >
+                  {s}
+                </button>
+              ))}
             </div>
           )}
         </div>
       </div>
 
-      {/* INPUT AREA - High Contrast Minimalism */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="relative group">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your command..."
-            className="w-full bg-white border border-slate-200 p-4 pr-14 rounded-2xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all shadow-sm group-hover:shadow-md"
-            disabled={isLoading}
-          />
-          <button 
-            type="submit"
-            disabled={isLoading || !input.trim()}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 text-white hover:bg-indigo-600 disabled:bg-slate-100 disabled:text-slate-300 transition-all transform active:scale-90 shadow-md"
-          >
-            <SendHorizontal size={18} />
-          </button>
+      {/* Voice status */}
+      {statusText && (
+        <div
+          role="status"
+          className={`shrink-0 -mb-1 flex items-center justify-center gap-2 text-xs font-medium ${
+            mic.status === "error" ? "text-red-600 dark:text-red-400" : "text-accent"
+          }`}
+        >
+          {mic.status !== "error" && (
+            <span className={`w-2 h-2 rounded-full bg-accent ${mic.status === "hearing" ? "animate-ping" : "animate-pulse"}`} />
+          )}
+          <span className="truncate max-w-[90%]">{statusText}</span>
         </div>
+      )}
 
-        {/* Dynamic Badge - Added for Drama */}
-        <div className="flex justify-center">
-          <div className="px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 flex items-center gap-2">
-             <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-             <span className="text-[9px] font-bold uppercase tracking-tighter text-slate-500">AI Online</span>
-          </div>
-        </div>
+      {/* Input */}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          send(input);
+        }}
+        className="flex items-center gap-2 shrink-0"
+      >
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder={micSupported() ? "Talk, or type here…" : "Ask about Shivam..."}
+          aria-label="Message"
+          className="flex-1 min-w-0 h-11 bg-surface border border-gray-300 px-4 rounded-full text-sm text-ink placeholder:text-gray-400 focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition"
+        />
+        <Stt autoStart onStatus={(status, message) => setMic({ status, message })} />
+        <button
+          type="submit"
+          aria-label="Send"
+          disabled={phase === "thinking" || !input.trim()}
+          className="w-11 h-11 shrink-0 flex items-center justify-center rounded-full bg-accent text-white hover:opacity-90 disabled:opacity-40 transition active:scale-95"
+        >
+          <SendHorizontal size={18} />
+        </button>
       </form>
 
       <style jsx>{`
@@ -149,11 +177,20 @@ function TextBot() {
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e2e8f0;
+          background: rgb(var(--n-300));
           border-radius: 20px;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #cbd5e1;
+      `}</style>
+      <style jsx global>{`
+        @keyframes msgIn {
+          from {
+            opacity: 0;
+            transform: translateY(6px);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
         }
       `}</style>
     </div>

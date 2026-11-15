@@ -1,6 +1,9 @@
 "use client"
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { setCategory } from "@/redux/categorySlice";
+import { setPath } from "@/redux/pathSlice";
 import { Github, ExternalLink, ChevronLeft, Layout, Smartphone, Globe } from "lucide-react";
 
 interface ProjectData {
@@ -16,6 +19,13 @@ interface ProjectData {
 
 export default function ProjectDetail({ slug }: { slug: string }) {
   const [projectData, setProjectData] = useState<ProjectData | null>(null);
+  const dispatch = useDispatch();
+
+  // Back to the Projects list inside the dashboard (not the home page).
+  const goBack = () => {
+    dispatch(setCategory("project"));
+    dispatch(setPath(""));
+  };
 
   useEffect(() => {
     if (slug) {
@@ -41,15 +51,16 @@ export default function ProjectDetail({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="bg-[#F8FAFC] min-h-screen">
+    <div className="bg-midnight min-h-screen">
       {/* --- Top Navigation --- */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-2 h-16 flex justify-between items-center">
-          <Link href="/" className="flex items-center text-slate-600 hover:text-customBlue transition-all group">
+          <button type="button" onClick={goBack} className="flex items-center text-slate-600 hover:text-customBlue transition-all group">
             <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="ml-1 font-semibold">Back</span>
-          </Link>
+            <span className="ml-1 font-semibold">Back to projects</span>
+          </button>
           <div className="flex items-center gap-3">
+            {projectData.github_link && (
             <Link 
               href={projectData.github_link} 
               target="_blank" 
@@ -58,6 +69,8 @@ export default function ProjectDetail({ slug }: { slug: string }) {
             >
               <Github size={20} />
             </Link>
+            )}
+            {projectData.link && (
             <Link 
               href={projectData.link} 
               target="_blank" 
@@ -66,6 +79,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
               <span>Live Demo</span>
               <ExternalLink size={16} />
             </Link>
+            )}
           </div>
         </div>
       </nav>
@@ -95,7 +109,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
                    - object-contain ensures no zooming.
                    - bg-black provides the pillar-box effect.
                 */}
-                <div className="relative bg-black rounded-2xl overflow-hidden border border-slate-200 shadow-xl max-h-[700px] flex items-center justify-center">
+                <div className="relative bg-[#000] rounded-2xl overflow-hidden border border-slate-200 shadow-xl max-h-[700px] flex items-center justify-center">
                   <video
                     src={projectData.videoLink}
                     className="w-full max-h-[700px] object-contain"
@@ -167,6 +181,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
               </div>
 
               {/* Call to Action */}
+              {projectData.github_link && (
               <div className="p-1 bg-gradient-to-br from-customBlue to-blue-600 rounded-[2rem]">
                 <div className="bg-white/10 backdrop-blur-sm p-8 rounded-[1.9rem] text-white">
                   <h3 className="text-xl font-bold mb-2">Want to see more?</h3>
@@ -180,6 +195,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
                   </Link>
                 </div>
               </div>
+              )}
 
             </div>
           </aside>

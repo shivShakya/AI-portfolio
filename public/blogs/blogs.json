@@ -1,17 +1,67 @@
 [
-    {
-      "id": 1,
-      "title": "The Art of Mindfulness",
-      "description": "Discover how mindfulness can improve your daily life and help you find peace in the chaos.",
-      "image": "/MainBefore.jpg",
-      "link": "/blog/1"
-    },
-    {
-      "id": 2,
-      "title": "Top 10 Travel Destinations",
-      "description": "Explore the must-visit travel destinations for 2025. From tropical beaches to mountain escapes.",
-      "image": "/MainBefore.jpg",
-      "link": "/blog/2"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "MCP finally made my AI agents stop being lonely",
+    "description": "Why I stopped writing custom glue code for every tool my AI needed to talk to, and what the Model Context Protocol actually changed for me.",
+    "date": "November 2026",
+    "readTime": "6 min read",
+    "tag": "AI Engineering",
+    "content": [
+      "For a long time, every AI feature I built had the same boring middle part. The model was the fun bit. The prompt was the fun bit. But then the model needed to check a calendar, or look up a customer, or read something from the database, and I was back to writing glue code. A new function, a new JSON schema, a new wrapper. Then the next project came along and I wrote almost the same thing again.",
+      "That's the problem MCP solved for me, and honestly I didn't get it the first time I read about it.",
+      "## So what is MCP?",
+      "MCP stands for Model Context Protocol. Anthropic open-sourced it, and now pretty much everyone in the AI tooling space supports it. The simplest way I can explain it: it's USB-C for AI tools.",
+      "Before USB-C, every device had its own charger. Before MCP, every AI app had its own way of connecting to tools. If you wanted your assistant to read GitHub, you wrote a GitHub integration for that specific app. Want the same thing in another app? Write it again.",
+      "With MCP, you write a small server once. That server says \"here are the tools I have, here's what they need, here's what they return.\" Any MCP client (Claude, an IDE, your own agent) can connect to it and start using those tools. No custom wiring per app.",
+      "## The three things a server can give you",
+      "When I first opened the spec I expected something huge. It's actually pretty small. An MCP server can expose three kinds of things:",
+      "Tools are actions the model can call, like create_ticket or search_orders. Resources are data the model can read, like a file, a document or a row from a table. Prompts are reusable templates the user can pick, like \"summarise this call\".",
+      "That's mostly it. The client discovers what's available, the model decides what to use, and the server does the actual work. Once that clicked, the whole thing felt less like a new framework and more like a sensible agreement everyone finally signed.",
+      "## Where it clicked for me",
+      "At work I've been building an AI receptionist. It picks up calls, understands what the caller wants and routes them to the right place. Behind that one phone call there's a lot going on: checking who the caller is, looking at past calls, figuring out if a callback is pending, logging the lead.",
+      "Every one of those is a tool the AI needs. When I started thinking about them as MCP tools instead of random functions buried inside the agent code, the design got cleaner. The call logic doesn't care how the CRM lookup works. It just knows there's a tool called find_caller and it returns something useful. If tomorrow we swap the CRM, only that one server changes.",
+      "That separation is the real win. Not the protocol itself, but the habit it pushes you into.",
+      "## Things nobody tells you",
+      "A few things I learned the hard way, so you don't have to:",
+      "Tool descriptions matter more than tool code. The model only knows what your tool does from its name and description. If you write \"gets data\", don't be surprised when the model calls it at the wrong time. Write it like you're explaining it to a new teammate.",
+      "Fewer tools is usually better. I once gave an agent around twenty tools and it got confused about which one to pick. Grouping them and keeping only what's needed for the task made it noticeably more reliable.",
+      "Security is your job, not the protocol's. An MCP server can do whatever you code it to do. If it can delete records, the model can delete records. Keep permissions tight, keep anything destructive behind a confirmation, and never assume the model will \"know better\".",
+      "Latency adds up. Every tool call is a round trip. In a voice app where a caller is waiting on the line, three slow tool calls feel like forever. Cache what you can and keep each tool fast and focused.",
+      "## Should you care?",
+      "If you're building anything where an AI needs to do more than chat, yes. You don't need to rewrite everything tomorrow. But the next time you're about to write yet another custom integration, try wrapping it as an MCP server instead. The first one takes an afternoon. The second one takes an hour. By the third, you'll wonder why you ever did it the old way.",
+      "That's been my experience anyway. If you're working on something similar, I'd love to hear how you're structuring it. Reach out through the contact page."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Jev: an AI model that doesn't talk, it just decides",
+    "description": "TypeSafe's new decision model skips text generation and returns typed answers. Here's why that caught my attention as someone who builds AI call routing.",
+    "date": "November 2026",
+    "readTime": "5 min read",
+    "tag": "AI Models",
+    "content": [
+      "Most of my day goes into one question: where should this call go?",
+      "A caller says something, the AI has to understand it, and then pick a path. Sales, support, a specific person, a callback, or just answer it directly. That decision has to be right, and it has to be fast, because there's a real human on the line waiting.",
+      "For a while the default answer to every problem like this has been \"throw an LLM at it\". Ask GPT or Claude to read the transcript and reply with a department name. It works. But it always felt a bit like hiring a novelist to tick a checkbox.",
+      "So when TypeSafe AI released Jev in September, I paid attention.",
+      "## What Jev actually is",
+      "Jev is what they call a decision model. It doesn't generate text at all. You give it some state (a transcript, a ticket, a form, whatever) along with a set of typed questions. It gives back a structured answer for each question with a probability and a confidence score. One API call, no paragraphs.",
+      "The questions come in a few shapes: pick one option from a list, give a score on a scale, or answer yes or no. That's basically classification, rating and judgment, which is most of what I actually need a model to do in a routing system.",
+      "It's also quick. The numbers I've seen put a call somewhere in the range of tens to a few hundred milliseconds, which is a big deal when your whole product lives or dies on latency.",
+      "## Why this makes sense to me",
+      "When you use a regular LLM for a decision, you end up fighting it. You write \"reply with only one word\". It replies with one word and a full stop. Or an apology. Or a lovely explanation nobody asked for. So you add output parsing, then retries, then validation, and now your simple decision has three layers of defensive code around it.",
+      "A model that only returns typed answers removes that whole category of problems. You ask for one of five departments, you get one of five departments. Plus a confidence number you can actually use. If confidence is low, send the caller to a human. If it's high, route automatically. That's a clean rule I can explain to anyone on the team.",
+      "The confidence part is honestly the bit I'm most excited about. With LLMs you mostly get an answer and have to trust it. Here you get an answer and a sense of how sure the model is, which is exactly what you need to design a safe fallback.",
+      "## Where I'd be careful",
+      "I don't want to oversell it. A few things are worth keeping in mind:",
+      "Structured output doesn't mean correct output. Jev guarantees the shape of the answer, not that the answer is right. A confidently wrong department is still wrong. You still need test data and evaluation.",
+      "One early analysis found it agreed with big frontier models more often than it matched the actual ground truth labels. That tells me it may be learning to think like an LLM rather than like your domain. Test it on your own data before you trust it.",
+      "It's early access. Pin the version you test against. Model behaviour can shift between releases, and in a routing system a silent change is the worst kind.",
+      "It's not a replacement for the LLM. Jev picks the path, but something still has to handle the conversation, check permissions and produce the final reply. I see it as the fast gatekeeper in front, not the whole system.",
+      "## How I'd use it",
+      "If I were adding it to a call routing setup tomorrow, I'd start small. Put Jev in front as the first decision layer: intent, urgency, and \"does this need a human\". Keep the LLM for the conversation itself. Log every decision with its confidence, compare against what actually happened and adjust thresholds from there.",
+      "What I like about this direction is that it treats AI as a set of components with clear jobs instead of one giant model doing everything. Talking is one job. Deciding is another. It's nice to finally see a model built just for the second one.",
+      "I'm still exploring it, so take this as early impressions rather than a final verdict. If you've tried Jev in production, I'd genuinely like to compare notes."
+    ]
+  }
+]

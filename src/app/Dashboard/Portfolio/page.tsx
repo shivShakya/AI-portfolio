@@ -27,7 +27,7 @@ export default function Portfolio() {
               Shivam Shakya
             </h1>
             <p className="text-lg md:text-xl text-gray-500 font-medium mt-2">
-              Software Developer <span className="text-gray-300 mx-2">/</span> VRARMR, Delhi
+              Software Engineer <span className="text-gray-300 mx-2">/</span> Meta Design Solutions, Gurugram
             </p>
           </div>
         </div>
@@ -40,8 +40,9 @@ export default function Portfolio() {
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
     <p className="leading-relaxed">
-      Based in India, I work at the intersection of Full-Stack Development, AI engineering, 
-      and immersive 3D experiences using technologies like Three.js and Unity.
+      Based in India, I have 3 years of overall experience working at the intersection of 
+      Full-Stack Development, AI engineering, and immersive 3D experiences using technologies 
+      like Three.js and Unity.
     </p>
 
     <p className="leading-relaxed">

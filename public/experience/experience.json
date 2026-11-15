@@ -1,10 +1,25 @@
 [
   {
-    "title": "3D Developer at VRARMR, Delhi",
-    "duration": "1 year 4 months",
-    "technologies" : [],
+    "title": "Software Engineer at Meta Design Solutions, Gurugram",
+    "duration": "10 months",
+    "technologies": [],
     "description": [
-      "At VRARMR, I work on diverse projects, including 3D development, full-stack applications, and AI solutions.",
+      "Built an AI receptionist that understands caller context and routes each call to the right person or department.",
+      "Reduced end-to-end latency of the AI voice pipeline for faster, more natural real-time conversations.",
+      "Designed and built the complete system around the AI receptionist, from backend services to integrations.",
+      "Developed call management features including automatic call pick-up, missed-call tracking, and call logs.",
+      "Implemented lead generation by capturing and qualifying caller details from conversations.",
+      "Built an auto-callback feature that automatically returns missed calls.",
+      "Contributed to additional features and improvements across the product."
+    ],
+    "Important links": []
+  },
+  {
+    "title": "3D Full Stack Developer at VRARMR, Delhi",
+    "duration": "1 year 4 months",
+    "technologies": [],
+    "description": [
+      "At VRARMR, I worked on diverse projects, including 3D development, full-stack applications, and AI solutions.",
       "Over the past year, I have contributed to various projects such as a real-time 3D chatbot and video/audio editing software using FFmpeg.",
       "Optimized AI model performance by reducing latency for generative models.",
       "Utilized AWS hosting services for auto-scaling and load balancing to improve reach.",
@@ -13,14 +28,12 @@
       "Created multiple AR gamified templates to improve user engagement and showcase AR capabilities.",
       "Developed VR walkthroughs using web-based libraries such as Three.js and Babylon.js."
     ],
-    "Important links": [
-        
-    ]
+    "Important links": []
   },
   {
     "title": "Full Stack Intern at Renderpub, Bengaluru",
     "duration": "Internship (6 months)",
-    "technologies" : [],
+    "technologies": [],
     "description": [
       "Renderpub is a product-based company.",
       "Developed a 3D editor and pipeline for creating metaverses.",
@@ -33,7 +46,7 @@
   {
     "title": "Freelance 3D Developer",
     "duration": "1 Month",
-    "technologies" : [],
+    "technologies": [],
     "description": [
       "Developed a walkthrough application using React-Three-Fiber.",
       "Delivered a high-quality, interactive 3D experience for a client.",
@@ -44,7 +57,7 @@
   {
     "title": "Intern at Novelty AR",
     "duration": "5 months",
-    "technologies" : [],
+    "technologies": [],
     "description": [
       "Novelty AR is a startup focused on creating AR solutions for marketing strategies.",
       "My daily tasks involved developing gamified AR templates using Zapper.",

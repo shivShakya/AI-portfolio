@@ -1,57 +1,85 @@
 [
-   {
-      "id": "Ripple_AI",
-      "title": "Ripple AI",
-      "description": "A robust system for facial detection and recognition.",
-      "image": "/ripple.gif"
-    },
-    {
-      "id": "Department_project",
-      "title": "A Department Project",
-      "description": "An Interactive Zoo Metaverse",
-      "image": "/department.gif"
-    },
-    {
-      "id": "Aamchi_mess",
-      "title": "A Mess Management System",
-      "description": "An Interactive Zoo Metaverse",
-      "image": "/aamchi_mess.gif"
-    },
-    {
-      "id": "face-recognition",
-      "title": "Face Recognition System",
-      "description": "A robust system for facial detection and recognition.",
-      "image": "/face-recognition.gif"
-    },
-    {
-      "id": "craftstore",
-      "title": "CraftStore",
-      "description": "An e-commerce platform for creative craft products.",
-      "image": "/craftstore.gif"
-    },
-    {
-      "id": "zoo",
-      "title": "Meta Zoo",
-      "description": "An Interactive Zoo Metaverse",
-      "image": "/zoo.gif"
-    },
-    {
-      "id": "VR_Projects",
-      "title": "VR Projects",
-      "description": "VR based projects to showcase",
-      "image": "/vr.gif"
-    },
-    {
-      "id": "chatbot",
-      "title": "3D Chatbot",
-      "description": "An interactive chatbot powered by 3D elements.",
-      "image": "/3dchatbot.gif"
-    },
-    {
-      "id": "faceswap",
-      "title": "Face swap",
-      "description": "Utilizing inswapper model for faceswapping task to make an engaging web solution.",
-      "image": "/faceswap.gif"
-    }
-  ]
-  
+  {
+    "id": "Ripple_AI",
+    "title": "Ripple AI",
+    "description": "Social welfare platform built on Spring Boot microservices, Kafka and Redis.",
+    "image": "/ripple.gif",
+    "categories": [
+      "Full Stack"
+    ]
+  },
+  {
+    "id": "Department_project",
+    "title": "A Department Project",
+    "description": "Alumni and placement management system for my department, built with MERN.",
+    "image": "/department.gif",
+    "categories": [
+      "Full Stack"
+    ]
+  },
+  {
+    "id": "Aamchi_mess",
+    "title": "A Mess Management System",
+    "description": "Android app that solves daily college hostel mess problems.",
+    "image": "/aamchi_mess.gif",
+    "categories": [
+      "Full Stack"
+    ]
+  },
+  {
+    "id": "face-recognition",
+    "title": "Face Recognition System",
+    "description": "A robust system for facial detection and recognition.",
+    "image": "/face-recognition.gif",
+    "categories": [
+      "AI / ML"
+    ]
+  },
+  {
+    "id": "craftstore",
+    "title": "CraftStore",
+    "description": "An e-commerce platform for creative craft products.",
+    "image": "/craftstore.gif",
+    "categories": [
+      "Full Stack",
+      "AI / ML"
+    ]
+  },
+  {
+    "id": "zoo",
+    "title": "Meta Zoo",
+    "description": "An Interactive Zoo Metaverse",
+    "image": "/zoo.gif",
+    "categories": [
+      "3D / XR"
+    ]
+  },
+  {
+    "id": "VR_Projects",
+    "title": "VR Projects",
+    "description": "VR based projects to showcase",
+    "image": "/vr.gif",
+    "categories": [
+      "3D / XR"
+    ]
+  },
+  {
+    "id": "chatbot",
+    "title": "3D Chatbot",
+    "description": "An interactive chatbot powered by 3D elements.",
+    "image": "/3dchatbot.gif",
+    "categories": [
+      "AI / ML",
+      "3D / XR"
+    ]
+  },
+  {
+    "id": "faceswap",
+    "title": "Face swap",
+    "description": "Utilizing inswapper model for faceswapping task to make an engaging web solution.",
+    "image": "/faceswap.gif",
+    "categories": [
+      "AI / ML"
+    ]
+  }
+]

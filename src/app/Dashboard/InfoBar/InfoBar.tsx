@@ -7,7 +7,7 @@ export default function InfoBar() {
 
   return (
     <div
-      className={`fixed z-30 top-0 left-0 w-full md:w-1/4 bg-background border border-gray-500 rounded-b-md overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${
+      className={`fixed z-30 top-0 left-0 w-full lg:w-1/4 bg-background border border-gray-500 rounded-b-md overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${
         isHovered ? "h-screen" : "h-16"
       }`}
       onMouseEnter={() => setIsHovered(true)}
@@ -15,7 +15,7 @@ export default function InfoBar() {
     >
       {isHovered && (
         <div
-          className="p-6 pt-20 text-customColor bg-white border-2 border-customColor overflow-y-auto"
+          className="p-6 pt-20 text-gray-700 bg-white border-2 border-customColor overflow-y-auto"
           style={{ scrollBehavior: "smooth", maxHeight: "calc(100vh - 64px)" }}
         >
           <div className="flex items-center justify-start mb-6">
@@ -29,9 +29,10 @@ export default function InfoBar() {
           </div>
 
           <p className="leading-relaxed">
-            Hey I am Shivam and this is my portfolio. I am working as a
-            software developer in VRARMR, Delhi, India. My expertise lies in AI
-            Development, 3D Development, and many more.
+            Hey I am Shivam and this is my portfolio. I am a software engineer
+            with 3 years of experience, currently working at Meta Design
+            Solutions, Gurugram, India. My expertise lies in AI Development,
+            Full-Stack Development, 3D Development, and many more.
           </p>
           <p className="leading-relaxed mt-4">
             Over the past few years, I&apos;ve had the opportunity to work on
